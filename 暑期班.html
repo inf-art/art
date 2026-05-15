@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>暑期创意手工坊 | 每堂$100 · 成品带回家</title>
+    <!-- Google Fonts & 简单动画库 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(145deg, #fff9e8 0%, #fff2df 100%);
+            color: #2d2b26;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* 装饰云朵 */
+        .cloud-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .cloud-bg i {
+            position: absolute;
+            color: rgba(255, 230, 180, 0.3);
+            font-size: 6rem;
+            animation: floatCloud 20s infinite linear;
+        }
+        @keyframes floatCloud {
+            0% { transform: translateX(-10%) translateY(0px); opacity: 0.2; }
+            50% { transform: translateX(10%) translateY(-20px); opacity: 0.5; }
+            100% { transform: translateX(-10%) translateY(0px); opacity: 0.2; }
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* 右上角返回主页按钮 - 链接到 studio.html */
+        .home-btn {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            background: #ff8c42;
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            z-index: 100;
+            text-decoration: none;
+            border: none;
+            font-size: 1.4rem;
+        }
+        .home-btn:hover {
+            background: #e07c2e;
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+        }
+        @media (max-width: 640px) {
+            .home-btn {
+                top: 16px;
+                right: 16px;
+                width: 42px;
+                height: 42px;
+                font-size: 1.2rem;
+            }
+        }
+
+        /* 头部 Hero */
+        .hero {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: rgba(255, 245, 225, 0.7);
+            border-radius: 0 0 60px 60px;
+            backdrop-filter: blur(3px);
+            margin-bottom: 40px;
+        }
+        .badge-year {
+            background: #ff8c42;
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 100px;
+            color: white;
+            font-weight: 800;
+            letter-spacing: 1px;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #F97316, #FACC15);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+        }
+        .tagline {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #b45f2b;
+            background: #fff0e0;
+            display: inline-block;
+            padding: 6px 24px;
+            border-radius: 40px;
+            margin-bottom: 20px;
+        }
+        .age-range {
+            font-size: 1.2rem;
+            background: #ffead2;
+            padding: 8px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            margin: 16px 0;
+            font-weight: 600;
+        }
+        .age-range i {
+            color: #F97316;
+            margin-right: 8px;
+        }
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: 0.2s;
+            box-shadow: 0 8px 18px rgba(37,211,102,0.3);
+            text-decoration: none;
+            margin-top: 20px;
+        }
+        .btn-whatsapp:hover {
+            background: #20b859;
+            transform: scale(1.02);
+            box-shadow: 0 12px 24px rgba(37,211,102,0.4);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #ff8c42;
+            padding: 12px 28px;
+            border-radius: 60px;
+            font-weight: 600;
+            color: #ff8c42;
+            text-decoration: none;
+            margin: 0 8px;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-outline:hover {
+            background: #ff8c42;
+            color: white;
+        }
+        /* 价格卡片 */
+        .price-card {
+            background: white;
+            border-radius: 48px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+            padding: 28px 32px;
+            text-align: center;
+            margin: 40px 0 30px;
+            border: 2px solid #ffe1b3;
+        }
+        .price-badge {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #F97316;
+            line-height: 1;
+        }
+        .price-badge small {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        .price-desc {
+            font-size: 1.2rem;
+            margin-top: 12px;
+            font-weight: 500;
+            background: #fef7e8;
+            display: inline-block;
+            padding: 6px 20px;
+            border-radius: 60px;
+        }
+        .highlight {
+            background: #fff1e0;
+            border-left: 8px solid #F97316;
+            padding: 16px 20px;
+            border-radius: 28px;
+            font-weight: 500;
+        }
+        /* 手作成品展示 */
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            text-align: center;
+            margin: 60px 0 20px;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        .section-title span {
+            background: #fff2e2;
+            padding: 0 20px;
+        }
+        .flower-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin: 30px 0 50px;
+        }
+        .flower-card {
+            background: white;
+            border-radius: 36px;
+            overflow: hidden;
+            text-align: center;
+            transition: all 0.25s ease;
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.1);
+            border: 1px solid rgba(249,115,22,0.2);
+        }
+        .flower-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 28px 30px -12px rgba(249,115,22,0.25);
+        }
+        .flower-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        .flower-card:hover .flower-img {
+            transform: scale(1.02);
+        }
+        /* 成品名称样式 */
+        .product-name {
+            font-weight: 800;
+            font-size: 1.3rem;
+            margin: 16px 0 8px;
+            color: #b45f2b;
+        }
+        .flower-desc {
+            color: #5a4a38;
+            font-size: 0.9rem;
+            padding: 0 12px 20px;
+        }
+        /* 信息卡片区域 (联络+课程亮点) */
+        .info-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .info-card {
+            flex: 1;
+            background: white;
+            border-radius: 32px;
+            padding: 28px 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            transition: 0.2s;
+            text-align: center;
+        }
+        .info-card i {
+            font-size: 2.2rem;
+            background: #ffedd5;
+            padding: 14px;
+            border-radius: 30px;
+            color: #F97316;
+            margin-bottom: 18px;
+        }
+        .info-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 14px;
+        }
+        .contact-detail {
+            font-weight: 500;
+            word-break: break-word;
+        }
+        .contact-detail a {
+            color: #F97316;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .contact-detail a:hover {
+            text-decoration: underline;
+        }
+        .schedule-list {
+            text-align: left;
+            max-width: 280px;
+            margin: 0 auto;
+        }
+        .schedule-list li {
+            margin: 12px 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        hr {
+            margin: 20px 0;
+            border: 0;
+            height: 2px;
+            background: linear-gradient(to right, #ffd89a, #ffb152, #ffd89a);
+        }
+        .footer {
+            text-align: center;
+            padding: 40px 20px 30px;
+            border-top: 1px solid #ffe0b5;
+            margin-top: 30px;
+            font-size: 0.85rem;
+            color: #b47c44;
+        }
+        @media (max-width: 780px) {
+            h1 { font-size: 2.2rem; }
+            .tagline { font-size: 1rem; }
+            .hero { padding: 40px 16px; }
+            .btn-outline, .btn-whatsapp { font-size: 0.9rem; padding: 10px 20px; }
+            .section-title { font-size: 1.8rem; }
+            .price-card { padding: 20px; }
+            .flower-img { height: 180px; }
+        }
+        @media (max-width: 550px) {
+            .info-grid { flex-direction: column; }
+            .container { padding: 0 16px; }
+        }
+        .map-link {
+            background: #f7f0e6;
+            border-radius: 28px;
+            padding: 12px;
+            margin-top: 10px;
+            font-size: 0.85rem;
+            display: inline-block;
+        }
+        .flex-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<!-- 右上角返回主页按钮 - 链接到 studio.html (即主网站) -->
+<a href="https://inf-art.github.io/art/studiohtml" class="home-btn" id="homeButton" aria-label="返回主页" target="_blank" rel="noopener noreferrer">
+    <i class="fas fa-home"></i>
+</a>
+
+<div class="cloud-bg">
+    <i class="fas fa-cloud" style="top: 5%; left: -2%; font-size: 8rem;"></i>
+    <i class="fas fa-cloud-sun" style="bottom: 12%; right: -1%; font-size: 7rem;"></i>
+    <i class="fas fa-palette" style="top: 20%; right: 8%; opacity: 0.15; font-size: 4.5rem;"></i>
+    <i class="fas fa-paintbrush" style="bottom: 25%; left: 5%; opacity: 0.15; font-size: 4rem;"></i>
+</div>
+
+<div class="container">
+    <!-- 主视觉 -->
+    <div class="hero" id="topHero">
+        <div class="badge-year">✨ 夏季限定 2026 ✨</div>
+        <h1>暑期創意手工坊</h1>
+        <div class="tagline"><i class="fas fa-sun"></i> 夏日樂趣，創意無限！ <i class="fas fa-ice-cream"></i></div>
+        <div class="age-range"><i class="fas fa-child"></i> 適合 3-12 歲 · 引導式教學 · 快樂手作</div>
+        <div class="flex-buttons">
+            <!-- WhatsApp号码已更新为 6626 2756 -->
+            <a href="https://wa.me/85266262756?text=我想查詢暑期創意手工坊報名詳情，小朋友年齡____歲，想了解$100/堂成品班🙂" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> 立即報名 / 查詢</a>
+            <a href="#contact" class="btn-outline"><i class="fas fa-chevron-down"></i> 聯絡資訊</a>
+        </div>
+    </div>
+
+    <!-- 核心價格+成品資訊 -->
+    <div class="price-card">
+        <div class="price-badge">
+            HK$100 <small>/ 每堂</small>
+        </div>
+        <div class="price-desc">
+            <i class="fas fa-gift"></i> 每堂完成一件獨一無二成品 · 材料全包 · 即日帶回家
+        </div>
+        <div class="highlight" style="margin-top: 24px;">
+            <i class="fas fa-check-circle" style="color:#F97316;"></i> 彈性上堂 · 逐堂報名 · 無須捆綁 · 完成作品滿載成就感
+        </div>
+        <p style="margin-top: 20px; font-weight: 500;">🎨 每堂75分鐘，專業導師指導，讓孩子發揮無限想像力，創作出屬於自己的藝術品！</p>
+    </div>
+
+    <!-- 标题：✨ 暑期班手作成品 ✨，下方为成品示例图片 -->
+    <div class="section-title"><span>✨ 暑期班手作成品 ✨</span></div>
+    <div class="flower-grid">
+        <div class="flower-card">
+            <img class="flower-img" src="s1.jpg" alt="黏土展示" loading="lazy">
+            <div class="product-name">暑期班成品</div>
+           
+        </div>
+        <div class="flower-card">
+            <img class="flower-img" src="s2.jpg" alt="黏土展示" loading="lazy">
+            <div class="product-name">暑期班成品</div>
+           
+        </div>
+        <div class="flower-card">
+            <img class="flower-img" src="s3.jpg" alt="黏土展示" loading="lazy">
+            <div class="product-name">暑期班成品</div>
+            
+        </div>
+        <div class="flower-card">
+            <img class="flower-img" src="s4.jpg" alt="黏土展示" loading="lazy">
+            <div class="product-name">暑期班成品</div>
+            
+        </div>
+        
+    </div>
+
+    <!-- 聯絡資訊 + 課程亮點 -->
+    <div class="info-grid">
+        <div class="info-card" id="contact">
+            <i class="fas fa-address-card"></i>
+            <h3>📞 聯絡 & 報名</h3>
+            <div class="contact-detail">
+                <!-- WhatsApp号码已更新为 6626 2756 -->
+                <p><i class="fab fa-whatsapp" style="color:#25D366;"></i> <strong>WhatsApp :</strong> <a href="https://wa.me/85266262756?text=我想查詢暑期手工坊+$100成品班" target="_blank">6626 2756 (林小姐)</a></p>
+                <p><i class="fas fa-envelope"></i> <strong>電郵 :</strong> <a href="mailto:influencership@yahoo.com">influencership@yahoo.com</a></p>
+                <p><i class="fas fa-globe"></i> <strong>網頁 :</strong> <a href="https://inf-art.github.io/art/studiohtml" target="_blank" rel="noopener noreferrer">inf-art.github.io/art/studiohtml</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> <strong>地址 :</strong><br> 九龍荔枝角長沙灣道742-748號<br> 鴻昌工廠大厦7字樓F座709室</p>
+                <div class="map-link">
+                    <a href="https://www.google.com/maps/search/?api=1&query=九龍荔枝角長沙灣道742-748號鴻昌工廠大厦" target="_blank" style="color:#F97316; text-decoration: none;"><i class="fas fa-location-dot"></i> 查看地圖 (荔枝角站B1出口步行約5分鐘)</a>
+                </div>
+            </div>
+        </div>
+        <div class="info-card">
+            <i class="fas fa-chalkboard-user"></i>
+            <h3>🎨 課程亮點</h3>
+            <ul class="schedule-list">
+                <li><i class="fas fa-check"></i> 每堂$100，成品帶回家</li>
+                <li><i class="fas fa-check"></i> 安全無毒材料</li>
+                <li><i class="fas fa-check"></i> 導師耐心引導</li>
+                <li><i class="fas fa-check"></i> 激發創意與專注力</li>
+            </ul>
+            <div style="margin-top: 20px;"><i class="fas fa-tag"></i> 多堂優惠請 WhatsApp 查詢</div>
+        </div>
+    </div>
+
+    <!-- 強力號召區域 -->
+    <div style="background: linear-gradient(120deg, #FFF1E0, #FFE8D5); border-radius: 60px; padding: 30px 24px; text-align: center; margin: 30px 0;">
+        <h2><i class="fas fa-message"></i> 立即為孩子預約夏日創作樂趣</h2>
+        <p style="margin: 10px 0 20px; font-size: 1.2rem;">每堂$100 · 成品即日帶走 · 名額有限，滿班即止</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;">
+            <!-- WhatsApp号码已更新 -->
+            <a href="https://wa.me/85266262756?text=" class="btn-whatsapp" style="background: #25D366; margin:0"><i class="fab fa-whatsapp"></i> WhatsApp 林小姐</a>
+            <a href="mailto:influencership@yahoo.com?subject=查詢暑期手工坊報名" class="btn-outline" style="border-color:#F97316;"><i class="fas fa-envelope"></i> 電郵查詢</a>
+        </div>
+        <hr style="margin: 30px auto 20px; width: 80px;">
+        <div style="font-size: 0.9rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+            <!-- 电话号码已更新 -->
+            <span><i class="fab fa-whatsapp"></i> 6626 2756 (林小姐)</span>
+            <span><i class="fas fa-envelope"></i> influencership@yahoo.com</span>
+            <!-- 作品網站链接已删除 -->
+        </div>
+        <div style="margin-top: 18px; background: white; border-radius: 40px; padding: 12px; max-width: 500px; margin-left: auto; margin-right: auto;">
+            <i class="fas fa-location-dot" style="color:#F97316;"></i> 九龍荔枝角長沙灣道742-748號鴻昌工廠大厦7字樓F座709室<br>
+            (荔枝角地鐵站B1出口步行約5分鐘)
+        </div>
+    </div>
+
+    <!-- 頁腳 -->
+    <div class="footer">
+        <p><i class="far fa-copyright"></i> 2026 暑期創意手工坊 — 夏日樂趣，創意無限！ 適合3-12歲兒童 | 每堂即有一件獨特成品 | 每堂$100</p>
+        <p style="margin-top: 10px;">📢 歡迎學校、機構合作，查詢請WhatsApp林小姐 (6626 2756)</p>
+        <p>🔗 網址: <a href="https://inf-art.github.io/art/studiohtml" target="_blank" style="color:#F97316;">https://inf-art.github.io/art/studiohtml</a> ｜ 電郵: influencership@yahoo.com</p>
+    </div>
+</div>
+</body>
+</html>
