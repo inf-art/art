@@ -246,6 +246,7 @@
             transition: all 0.25s ease;
             box-shadow: 0 12px 24px -12px rgba(0,0,0,0.1);
             border: 1px solid rgba(249,115,22,0.2);
+            cursor: pointer;
         }
         .flower-card:hover {
             transform: translateY(-8px);
@@ -257,6 +258,7 @@
             object-fit: cover;
             display: block;
             transition: transform 0.4s ease;
+            pointer-events: none; /* 让点击由父卡片处理，便于统一放大 */
         }
         .flower-card:hover .flower-img {
             transform: scale(1.02);
@@ -367,6 +369,66 @@
             gap: 14px;
             margin-top: 20px;
         }
+
+        /* 模态框 (Lightbox) 样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            animation: zoomIn 0.3s ease;
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .close-modal {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: #fff;
+            font-size: 48px;
+            font-weight: bold;
+            transition: 0.2s;
+            cursor: pointer;
+            z-index: 1001;
+            background: rgba(0,0,0,0.5);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .close-modal:hover {
+            color: #ff8c42;
+            background: rgba(0,0,0,0.8);
+            transform: scale(1.05);
+        }
+        @media (max-width: 640px) {
+            .close-modal {
+                top: 20px;
+                right: 20px;
+                font-size: 36px;
+                width: 48px;
+                height: 48px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -374,6 +436,12 @@
 <a href="https://inflship.com" class="home-btn" id="homeButton" aria-label="返回主页" target="_blank" rel="noopener noreferrer">
     <i class="fas fa-home"></i>
 </a>
+
+<!-- 图片放大模态框 -->
+<div id="imageModal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modalImage" alt="放大的成品图片">
+</div>
 
 <div class="cloud-bg">
     <i class="fas fa-cloud" style="top: 5%; left: -2%; font-size: 8rem;"></i>
@@ -410,27 +478,27 @@
         <p style="margin-top: 20px; font-weight: 500;">🎨 每堂75分鐘，專業導師指導，讓孩子發揮無限想像力，創作出屬於自己的藝術品！</p>
     </div>
 
-    <!-- 标题：✨ 暑期班手作成品 ✨，下方为成品示例图片 -->
+    <!-- 标题：✨ 暑期班手作成品 ✨，下方为成品示例图片（点击任意图片可放大） -->
     <div class="section-title"><span>✨ 暑期班手作成品 ✨</span></div>
     <div class="flower-grid">
-        <div class="flower-card">
-            <img class="flower-img" src="sp1.png" alt="黏土展示" loading="lazy">
-            <div class="product-name">壽司主題</div>
-           
-        </div>
-        <div class="flower-card">
-            <img class="flower-img" src="sp2.png" alt="黏土展示" loading="lazy">
-            <div class="product-name">水果主題</div>
-           
-        </div>
-        <div class="flower-card">
-            <img class="flower-img" src="sp3.png" alt="黏土展示" loading="lazy">
-            <div class="product-name">蔬菜主題</div>
+        <div class="flower-card" data-img-src="sp1.png" data-img-alt="暑期成品">
+            <img class="flower-img" src="sp1.png" alt="暑期成品" loading="lazy">
+            <div class="product-name">暑期班成品</div>
             
         </div>
-        <div class="flower-card">
-            <img class="flower-img" src="sp4.png" alt="黏土展示" loading="lazy">
-            <div class="product-name">麵包主題</div>
+        <div class="flower-card" data-img-src="sp2.png" data-img-alt="暑期成品">
+            <img class="flower-img" src="sp2.png" alt="暑期成品" loading="lazy">
+            <div class="product-name">暑期班成品</div>
+           
+        </div>
+        <div class="flower-card" data-img-src="sp3.png" data-img-alt="暑期成品">
+            <img class="flower-img" src="sp3.png" alt="暑期成品" loading="lazy">
+            <div class="product-name">暑期班成品</div>
+           
+        </div>
+        <div class="flower-card" data-img-src="sp4.png" data-img-alt="暑期成品">
+            <img class="flower-img" src="sp4.png" alt="彩暑期成品" loading="lazy">
+            <div class="product-name">暑期班成品</div>
             
         </div>
         
@@ -443,7 +511,7 @@
             <h3>📞 聯絡 & 報名</h3>
             <div class="contact-detail">
                 <!-- WhatsApp号码已更新为 6626 2756 -->
-                <p><i class="fab fa-whatsapp" style="color:#25D366;"></i> <strong>WhatsApp :</strong> <a href="https://wa.me/85266262756?text=我想查詢暑期手工坊+$100成品班" target="_blank">6626 2756 (林老師)</a></p>
+                <p><i class="fab fa-whatsapp" style="color:#25D366;"></i> <strong>WhatsApp :</strong> <a href="https://wa.me/85266262756?text=" target="_blank">6626 2756 (林老師)</a></p>
                 <p><i class="fas fa-envelope"></i> <strong>電郵 :</strong> <a href="mailto:influencership@yahoo.com">influencership@yahoo.com</a></p>
                 <p><i class="fas fa-globe"></i> <strong>網頁 :</strong> <a href="https://inflship.com" target="_blank" rel="noopener noreferrer">inflship.com</a></p>
                 <p><i class="fas fa-map-marker-alt"></i> <strong>地址 :</strong><br> 九龍荔枝角長沙灣道742-748號<br> 鴻昌工廠大厦7字樓F座709室</p>
@@ -456,7 +524,7 @@
             <i class="fas fa-chalkboard-user"></i>
             <h3>🎨 課程亮點</h3>
             <ul class="schedule-list">
-                <li><i class="fas fa-check"></i> 每堂$150，成品帶回家</li>
+                <li><i class="fas fa-check"></i> 成品帶回家</li>
                 <li><i class="fas fa-check"></i> 安全無毒材料</li>
                 <li><i class="fas fa-check"></i> 導師耐心引導</li>
                 <li><i class="fas fa-check"></i> 激發創意與專注力</li>
@@ -468,7 +536,7 @@
     <!-- 強力號召區域 -->
     <div style="background: linear-gradient(120deg, #FFF1E0, #FFE8D5); border-radius: 60px; padding: 30px 24px; text-align: center; margin: 30px 0;">
         <h2><i class="fas fa-message"></i> 立即為孩子預約夏日創作樂趣</h2>
-        <p style="margin: 10px 0 20px; font-size: 1.2rem;">每堂$100 · 成品即日帶走 · 名額有限，滿班即止</p>
+        <p style="margin: 10px 0 20px; font-size: 1.2rem;">成品帶走 · 名額有限，滿班即止</p>
         <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;">
             <!-- WhatsApp号码已更新 -->
             <a href="https://wa.me/85266262756?text=" class="btn-whatsapp" style="background: #25D366; margin:0"><i class="fab fa-whatsapp"></i> WhatsApp 林老師</a>
@@ -489,10 +557,73 @@
 
     <!-- 頁腳 -->
     <div class="footer">
-        <p><i class="far fa-copyright"></i> 2026 暑期創意手工坊 — 夏日樂趣，創意無限！ 適合3-12歲兒童 | 每堂即有一件獨特成品 | 每堂$100</p>
-        <p style="margin-top: 10px;">📢 歡迎學校、機構合作，查詢請WhatsApp林老師 (6626 2756)</p>
-        <p>🔗 網址: <a href="https://inflship.com" target="_blank" style="color:#F97316;">https://inflship.com</a> ｜ 電郵: influencership@yahoo.com</p>
+        <p><i class="far fa-copyright"></i> 2026 暑期創意手工坊 — 夏日樂趣，創意無限！ 適合3-12歲兒童</p>
+        <p style="margin-top: 10px;">📢 歡迎學校、機構合作，查詢請WhatsApp林小姐 (6626 2756)</p>
+        <p>🔗 網址: <a href="https://inflship.com" target="_blank" style="color:#F97316;">https://inslship.com</a> ｜ 電郵: influencership@yahoo.com</p>
     </div>
 </div>
+
+<script>
+    // 图片点击放大功能 (Lightbox)
+    (function() {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const closeModalBtn = document.querySelector('.close-modal');
+        
+        // 获取所有带 data-img-src 的卡片 (成品卡片)
+        const flowerCards = document.querySelectorAll('.flower-card');
+        
+        function openModal(imgSrc, altText) {
+            if (!modal || !modalImg) return;
+            modalImg.src = imgSrc;
+            modalImg.alt = altText || '放大的作品圖片';
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // 防止背景滚动
+        }
+        
+        function closeModal() {
+            if (!modal) return;
+            modal.style.display = 'none';
+            document.body.style.overflow = ''; // 恢复滚动
+        }
+        
+        // 为每个卡片绑定点击事件
+        flowerCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                // 避免点击内部链接或者误触（但卡片内无独立链接，安全）
+                let imgSrc = card.getAttribute('data-img-src');
+                let altText = card.querySelector('.flower-img')?.getAttribute('alt') || '暑期班手作成品';
+                // 如果没有设置高清大图，则使用原图（但我们已经加了高清链接）
+                if (!imgSrc) {
+                    const originalImg = card.querySelector('.flower-img');
+                    if (originalImg) imgSrc = originalImg.src;
+                }
+                if (imgSrc) {
+                    openModal(imgSrc, altText);
+                }
+                e.stopPropagation();
+            });
+        });
+        
+        // 点击模态背景关闭
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+        }
+        // 关闭按钮关闭
+        if (closeModalBtn) {
+            closeModalBtn.addEventListener('click', closeModal);
+        }
+        // 按 ESC 键关闭
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal && modal.style.display === 'flex') {
+                closeModal();
+            }
+        });
+    })();
+</script>
 </body>
 </html>
