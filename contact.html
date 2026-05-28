@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description" content="盛飛樓黏土工作室｜聯絡我們｜查詢課程與合作｜麵粉花工藝教室地址與聯繫方式">
+    <title>盛飛樓 · 聯絡我們｜查詢與預約</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #ffdbd8 0%, #ffc9c2 100%);
+            font-family: "Inter", sans-serif;
+            color: #3d2f2b;
+            line-height: 1.5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem 1.5rem;
+        }
+
+        .card {
+            max-width: 1280px;
+            width: 100%;
+            background-color: #fffaf9;
+            border-radius: 32px;
+            box-shadow: 0 20px 40px -12px rgba(180, 110, 100, 0.25), 0 8px 24px -6px rgba(140, 80, 70, 0.15);
+            overflow: hidden;
+            padding: 3rem 3rem 4rem 3rem;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 220, 215, 0.6);
+        }
+
+        /* 品牌區域 */
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+        }
+        .brand-name {
+            font-family: "Playfair Display", serif;
+            font-size: 2.4rem;
+            font-weight: 500;
+            color: #633d33;
+            letter-spacing: 1px;
+            line-height: 1.2;
+            display: inline-flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+        .brand-name span {
+            background: linear-gradient(135deg, #6a4238, #a56153);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .brand-flower {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: transform 0.2s ease;
+            /* 移除 box-shadow 與 border 樣式 */
+        }
+        .brand-flower:hover {
+            transform: scale(1.05);
+        }
+
+        /* 導覽列: 五個連結保持風格，各自指向獨立html檔 (home 已改為 index) */
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            gap: 0.5rem 2rem;
+            margin-top: 0.25rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #fbe0d7;
+        }
+        .nav-link {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #8b5c50;
+            text-decoration: none;
+            padding: 0.4rem 0;
+            transition: all 0.2s ease;
+            position: relative;
+            letter-spacing: 0.3px;
+        }
+        .nav-link:hover {
+            color: #c26e5c;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #e7b4a8;
+            transition: width 0.2s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .nav-link.active {
+            color: #c26e5c;
+            font-weight: 600;
+        }
+        .nav-link.active::after {
+            width: 100%;
+            background: #d9998a;
+        }
+
+        /* 聯絡資訊區塊全新樣式，呼應原有柔美基調 */
+        .contact-section {
+            background: #fffef7;
+            border-radius: 42px;
+            padding: 2rem 2rem 2.2rem;
+            margin: 0.5rem 0 1.8rem;
+            border: 1px solid #ffe3db;
+            box-shadow: 0 6px 18px rgba(140, 80, 70, 0.06);
+        }
+        .contact-title {
+            font-family: "Playfair Display", serif;
+            font-size: 2rem;
+            font-weight: 500;
+            color: #633d33;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        .contact-title::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 2px;
+            background: #eec7bc;
+            margin: 0.6rem auto 0;
+            border-radius: 4px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 0.5rem;
+        }
+        .contact-item {
+            background: #fffaf7;
+            padding: 1.4rem 1.2rem;
+            border-radius: 28px;
+            transition: all 0.25s ease;
+            border: 1px solid #ffefe8;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        .contact-item:hover {
+            transform: translateY(-3px);
+            border-color: #f3cdc0;
+            background: #ffffff;
+            box-shadow: 0 12px 22px -12px rgba(140, 80, 70, 0.2);
+        }
+        .contact-icon {
+            font-size: 2.2rem;
+            min-width: 48px;
+            text-align: center;
+            line-height: 1.2;
+        }
+        .contact-detail {
+            flex: 1;
+            word-break: break-word;
+        }
+        .contact-detail strong {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: #784c3f;
+            font-weight: 600;
+            letter-spacing: -0.2px;
+        }
+        .contact-detail a {
+            color: #b07160;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            font-size: 1.05rem;
+            word-break: break-all;
+        }
+        .contact-detail a:hover {
+            color: #cc8b78;
+            text-decoration: underline;
+        }
+        .address-block .contact-detail a {
+            line-height: 1.4;
+            display: inline-block;
+        }
+        /* 小提示字樣 */
+        .wa-note {
+            display: block;
+            font-size: 0.75rem;
+            color: #aa7c6e;
+            margin-top: 0.25rem;
+        }
+
+        /* 回饋小花紋 */
+        .footer-signature {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 2.4rem;
+            gap: 1rem;
+            color: #dbaa9f;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            border-top: 1px dashed #ffdfd2;
+            padding-top: 1.6rem;
+        }
+
+        /* 地圖提示區域（優雅間隔） */
+        .map-note {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            text-align: center;
+            color: #bc8f80;
+            background: #fef6f1;
+            border-radius: 60px;
+            padding: 0.6rem 1rem;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .map-note a {
+            color: #b56854;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .map-note a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 700px) {
+            .card {
+                padding: 2rem 1.5rem;
+            }
+            .brand-name {
+                font-size: 1.8rem;
+            }
+            .brand-flower {
+                width: 70px;
+                height: 70px;
+            }
+            .contact-title {
+                font-size: 1.7rem;
+            }
+            .contact-item {
+                padding: 1.2rem;
+            }
+            .contact-icon {
+                font-size: 1.8rem;
+                min-width: 40px;
+            }
+        }
+        @media (max-width: 480px) {
+            .contact-grid {
+                gap: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <!-- 品牌區域 (保留圖片，但僅限於品牌標誌裝飾，無其他內容圖片) -->
+    <div class="top-header">
+        <div class="brand-name">
+            <span class="brand-text">盛飛樓</span>
+            <!-- 品牌標誌圖片已更新為 logo.png，保留圓形與懸浮效果 -->
+            <img class="brand-flower" src="logo.png" alt="盛飛樓logo" loading="lazy">
+            <span class="brand-text">· 黏土工作室</span>
+        </div>
+    </div>
+
+    <!-- 導覽列: 五個連結各自連接到獨立的 HTML 頁面 
+         首頁連結改為 index.html，其餘維持 about.html, courses.html, gallery.html, contact.html
+         當前頁面為報名查詢/聯絡頁面 (contact.html) 因此將「報名查詢」設為 active 高亮狀態
+    -->
+    <div class="navbar">
+        <a href="index.html" class="nav-link">🏠 首頁</a>
+        <a href="about.html" class="nav-link">📖 關於我們</a>
+        <a href="courses.html" class="nav-link">🎨 課程</a>
+        <a href="gallery.html" class="nav-link">🖼️ 成品展出</a>
+        <a href="contact.html" class="nav-link active">📞 報名查詢</a>
+    </div>
+
+    <!-- 聯絡資訊區塊 (依需求完整嵌入，無任何圖片干擾) -->
+    <div class="contact-section">
+        <div class="contact-title">✧ 聯絡與查詢 ✧</div>
+        <div class="contact-grid">
+            <!-- WhatsApp / 電話 -->
+            <div class="contact-item">
+                <div class="contact-icon">📞</div>
+                <div class="contact-detail">
+                    <strong>查詢熱線 / WhatsApp</strong>
+                    <a href="https://wa.me/85266262756" target="_blank" rel="noopener noreferrer">6626 2756</a>
+                    <span class="wa-note">點擊直接 WhatsApp 對話</span>
+                </div>
+            </div>
+            <!-- 電郵 -->
+            <div class="contact-item">
+                <div class="contact-icon">📧</div>
+                <div class="contact-detail">
+                    <strong>電郵</strong>
+                    <a href="mailto:influencership@yahoo.com">influencership@yahoo.com</a>
+                </div>
+            </div>
+            <!-- 官方網頁 -->
+            <div class="contact-item">
+                <div class="contact-icon">🌐</div>
+                <div class="contact-detail">
+                    <strong>官方網頁</strong>
+                    <a href="https://inflship.com" target="_blank" rel="noopener noreferrer">https://inflship.com</a>
+                </div>
+            </div>
+            <!-- 工作室地址 (包含地圖連結) -->
+            <div class="contact-item address-block">
+                <div class="contact-icon">🏠</div>
+                <div class="contact-detail">
+                    <strong>工作室地址</strong>
+                    <a href="https://maps.google.com/?q=荔枝角長沙灣道742-748號鴻昌工廠大厦7字樓F座709室" target="_blank" rel="noopener noreferrer">
+                        九龍荔枝角長沙灣道742-748號<br>鴻昌工廠大厦7字樓F座709室
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- 小地圖提醒：額外增加線上地圖捷徑，保持整體完整度但無圖片僅為文字鏈結 -->
+        <div class="map-note">
+            📍 <a href="https://maps.google.com/?q=荔枝角長沙灣道742-748號鴻昌工廠大厦7字樓F座709室" target="_blank" rel="noopener noreferrer">點擊查看 Google 地圖路線</a> ｜歡迎預約到訪
+        </div>
+    </div>
+
+    <!-- 保留與原風格呼應的結尾裝飾，無關圖片，僅為字樣 -->
+    <div class="footer-signature">
+        <span>手作溫度</span> <span>·</span> <span>創意黏土</span> <span>·</span> <span>傳承美學</span>
+    </div>
+</div>
+
+<script>
+    // 導覽列已設定實際連結指向獨立 html 檔案 (index.html, about.html, courses.html, gallery.html, contact.html)
+    // 此處確保任何點擊都不會被 preventDefault 干擾真實跳轉；同時保留友善控制台紀錄，
+    // 但讓預設瀏覽行為正常運作。為了避免之前 preventDefault 影響跳轉，此處不再攔截帶有實際 href 的連結。
+    // 針對 "active" 類別的連結 (當前頁面 contact.html) 即使點擊也不會重新加載相同頁面 (瀏覽器會重新整理)，但體驗合理。
+    // 另外保留原先控制台資訊僅供參考，不影響跳轉。
+    const navLinks = document.querySelectorAll('.navbar .nav-link');
+    navLinks.forEach(link => {
+        // 移除任何可能被全域監聽綁定的事件 (確保沒有 e.preventDefault 干擾)
+        // 此處重新整理監聽僅為了追蹤，但完全保留默認行為
+        link.addEventListener('click', (e) => {
+            // 僅僅是輸出紀錄，不會阻止默認動作 (沒有 preventDefault)
+            console.log(`導覽前往: ${link.getAttribute('href')} — 頁面: ${link.innerText.trim()}`);
+        });
+    });
+
+    // 確保所有 .contact-detail 內的電話 / 信箱 / 地圖外連保持預設行為，不影響原本跳轉
+    // 沒有任何全域鎖定；所有連結皆正常運作。
+</script>
+</body>
+</html>

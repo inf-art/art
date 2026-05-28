@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description" content="盛飛樓黏土工作室｜水果系列｜鮮花系列｜手工系列｜其他系列｜黏土手作藝廊完整作品集，點擊圖片可放大檢視">
+    <title>盛飛樓 · 黏土藝廊｜水果・鮮花・手工創作 | 點擊圖片放大</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #ffdbd8 0%, #ffc9c2 100%);
+            font-family: "Inter", sans-serif;
+            color: #3d2f2b;
+            line-height: 1.5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem 1.5rem;
+        }
+
+        .card {
+            max-width: 1280px;
+            width: 100%;
+            background-color: #fffaf9;
+            border-radius: 32px;
+            box-shadow: 0 20px 40px -12px rgba(180, 110, 100, 0.25), 0 8px 24px -6px rgba(140, 80, 70, 0.15);
+            overflow: hidden;
+            padding: 3rem 3rem 4rem 3rem;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 220, 215, 0.6);
+        }
+
+        /* 品牌區域 */
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+        }
+        .brand-name {
+            font-family: "Playfair Display", serif;
+            font-size: 2.4rem;
+            font-weight: 500;
+            color: #633d33;
+            letter-spacing: 1px;
+            line-height: 1.2;
+            display: inline-flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+        .brand-name span {
+            background: linear-gradient(135deg, #6a4238, #a56153);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .brand-flower {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: transform 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 2px solid #ffded3;
+        }
+        .brand-flower:hover {
+            transform: scale(1.05);
+        }
+
+        /* 導覽列 */
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            gap: 0.5rem 2rem;
+            margin-top: 0.25rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #fbe0d7;
+        }
+        .nav-link {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #8b5c50;
+            text-decoration: none;
+            padding: 0.4rem 0;
+            transition: all 0.2s ease;
+            position: relative;
+            letter-spacing: 0.3px;
+        }
+        .nav-link:hover {
+            color: #c26e5c;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #e7b4a8;
+            transition: width 0.2s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .nav-link.active {
+            color: #c26e5c;
+            font-weight: 600;
+        }
+        .nav-link.active::after {
+            width: 100%;
+            background: #d9998a;
+        }
+
+        /* 分類選項卡區域 */
+        .series-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
+            margin: 2rem 0 2rem;
+        }
+        .tab-btn {
+            background: #fdf3ef;
+            border: 1.5px solid #e9cdc2;
+            padding: 0.7rem 1.8rem;
+            border-radius: 60px;
+            font-family: "Inter", sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #784e42;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+        .tab-btn .tab-icon {
+            font-size: 1.2rem;
+        }
+        .tab-btn:hover {
+            background: #ffe8e1;
+            border-color: #daae9e;
+            transform: translateY(-2px);
+        }
+        .tab-btn.active {
+            background: #e7cdc0;
+            border-color: #c99a88;
+            color: #55382e;
+            box-shadow: 0 4px 8px rgba(140, 80, 70, 0.1);
+        }
+
+        /* 每個系列畫廊區域 */
+        .gallery-series {
+            display: none;
+            background: #fffef7;
+            border-radius: 42px;
+            padding: 1.8rem 2rem 2rem;
+            margin: 0.5rem 0 1.5rem;
+            border: 1px solid #ffe3db;
+            box-shadow: 0 8px 24px rgba(140, 80, 70, 0.06);
+            transition: all 0.3s ease;
+        }
+        .gallery-series.active-series {
+            display: block;
+            animation: fadeSlideUp 0.4s ease forwards;
+        }
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .series-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+        .series-title {
+            font-family: "Playfair Display", serif;
+            font-size: 1.6rem;
+            color: #784e42;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        .gallery-item {
+            background: #ffffff;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 6px 14px rgba(100, 60, 50, 0.08);
+            transition: all 0.25s ease;
+            border: 1px solid #ffefe5;
+            cursor: pointer;
+        }
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 28px -12px rgba(110, 70, 60, 0.2);
+            border-color: #f3cfc0;
+        }
+        .gallery-item img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+            pointer-events: none;  /* 點擊事件由父層處理，便於統一放大 */
+        }
+        .gallery-item:hover img {
+            transform: scale(1.02);
+        }
+        .gallery-caption {
+            padding: 0.9rem 0.8rem;
+            text-align: center;
+            font-weight: 500;
+            background: #fffbf8;
+            color: #784c3f;
+            font-size: 0.9rem;
+            letter-spacing: 0.3px;
+            border-top: 1px solid #ffe4db;
+        }
+
+        .footer-signature {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 2.4rem;
+            gap: 1rem;
+            color: #dbaa9f;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            border-top: 1px dashed #ffdfd2;
+            padding-top: 1.6rem;
+        }
+
+        /* ========= 燈箱樣式 (圖片放大效果) ========= */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(30, 20, 18, 0.92);
+            backdrop-filter: blur(12px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0.2s, opacity 0.25s ease;
+            cursor: pointer;
+        }
+        .lightbox.active {
+            visibility: visible;
+            opacity: 1;
+        }
+        .lightbox-img {
+            max-width: 90vw;
+            max-height: 85vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 28px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
+            border: 3px solid #fff6f0;
+            cursor: default;
+            transition: transform 0.2s;
+        }
+        .lightbox-caption {
+            position: absolute;
+            bottom: 2rem;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: #fff3ed;
+            font-family: "Inter", sans-serif;
+            font-weight: 500;
+            background: rgba(80, 55, 48, 0.6);
+            backdrop-filter: blur(4px);
+            display: inline-block;
+            width: fit-content;
+            margin: 0 auto;
+            padding: 0.5rem 1.2rem;
+            border-radius: 60px;
+            font-size: 0.95rem;
+            pointer-events: none;
+        }
+        .close-lightbox {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            font-size: 2.2rem;
+            color: #fff0e8;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 300;
+            transition: transform 0.2s, color 0.2s;
+            z-index: 2001;
+            font-family: monospace;
+            line-height: 1;
+        }
+        .close-lightbox:hover {
+            color: #ffc8b8;
+            transform: scale(1.1);
+        }
+        @media (max-width: 700px) {
+            .card {
+                padding: 2rem 1.5rem;
+            }
+            .brand-name {
+                font-size: 1.8rem;
+            }
+            .brand-flower {
+                width: 70px;
+                height: 70px;
+            }
+            .gallery-grid {
+                gap: 1rem;
+            }
+            .gallery-series {
+                padding: 1.2rem;
+            }
+            .series-title {
+                font-size: 1.3rem;
+            }
+            .tab-btn {
+                padding: 0.5rem 1.2rem;
+                font-size: 0.9rem;
+            }
+            .close-lightbox {
+                top: 1rem;
+                right: 1.2rem;
+                font-size: 1.8rem;
+            }
+            .lightbox-caption {
+                bottom: 1rem;
+                font-size: 0.8rem;
+            }
+        }
+        @media (max-width: 550px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <!-- 品牌區域 -->
+    <div class="top-header">
+        <div class="brand-name">
+            <span class="brand-text">盛飛樓</span>
+            <img class="brand-flower" src="https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?w=160&h=160&fit=crop" alt="盛飛樓品牌花藝裝飾" loading="lazy">
+            <span class="brand-text">· 黏土工作室</span>
+        </div>
+    </div>
+
+    <!-- 導覽列 -->
+    <div class="navbar">
+        <a href="index.html" class="nav-link">🏠 首頁</a>
+        <a href="about.html" class="nav-link">📖 關於我們</a>
+        <a href="courses.html" class="nav-link">🎨 課程</a>
+        <a href="gallery.html" class="nav-link active">🖼️ 成品展出</a>
+        <a href="contact.html" class="nav-link">📞 報名查詢</a>
+    </div>
+
+    <!-- 選項卡按鈕 -->
+    <div class="series-tabs">
+        <button class="tab-btn active" data-series="fruit"><span class="tab-icon">☀️</span> 暑期班系列</button>
+        <button class="tab-btn" data-series="flower"><span class="tab-icon">🌸</span> 鮮花系列</button>
+        <button class="tab-btn" data-series="handmade"><span class="tab-icon">🛍️</span> 飾品系列</button>
+        <button class="tab-btn" data-series="other"><span class="tab-icon">✨</span> 其他系列</button>
+    </div>
+
+    <!-- 暑期班系列 -->
+    <div id="fruitSeries" class="gallery-series active-series">
+        <div class="series-header"><div class="series-title"><span>🌞 暑期班手作成品 🌞</span></div></div>
+        <div class="gallery-grid">
+            <div class="gallery-item" data-img="summer1.png" data-caption="日式壽司系列"><img src="summer1.png" alt="日式壽司系列" loading="lazy"><div class="gallery-caption">日式壽司系列</div></div>
+            <div class="gallery-item" data-img="summer2.png" data-caption="縯紛水果系列"><img src="summer2.png" alt="縯紛水果系列" loading="lazy"><div class="gallery-caption">縯紛水果系列</div></div>
+            <div class="gallery-item" data-img="summer3.png" data-caption="田園蔬菜系列系列"><img src="summer3.png" alt="田園蔬菜系列系列" loading="lazy"><div class="gallery-caption">田園蔬菜系列系列</div></div>
+            <div class="gallery-item" data-img="summer4.png" data-caption="烘焙麵包系列"><img src="summer4.png" alt="烘焙麵包系列" loading="lazy"><div class="gallery-caption">烘焙麵包系列</div></div>
+           
+        </div>
+    </div>
+
+    <!-- 鮮花系列 -->
+    <div id="flowerSeries" class="gallery-series">
+        <div class="series-header"><div class="series-title"><span>🌹 花漾黏土・永不凋零 🌼</span></div></div>
+        <div class="gallery-grid">
+            <div class="gallery-item" data-img="flower1.png" data-caption="花系列"><img src="flower1.png" alt="擬真花" loading="lazy"></div>
+            <div class="gallery-item" data-img="flower2.png" data-caption="花系列"><img src="flower2.png" alt="擬真花" loading="lazy"></div>
+            <div class="gallery-item" data-img="flower3.png" data-caption="花系列"><img src="flower3.png" alt="擬真花" loading="lazy"></div>
+            <div class="gallery-item" data-img="flower4.png" data-caption="花系列"><img src="flower4.png" alt="擬真花" loading="lazy"></div>
+            <div class="gallery-item" data-img="flower5.png" data-caption="花系列"><img src="flower5.png" alt="擬真花" loading="lazy"></div>
+            <div class="gallery-item" data-img="flower6.png" data-caption="花系列"><img src="flower6.png" alt="擬真花" loading="lazy"></div>
+            <div class="gallery-item" data-img="flower7.png" data-caption="花系列"><img src="flower7.png" alt="擬真花" loading="lazy"></div>
+            <div class="gallery-item" data-img="flower8.png" data-caption="花系列"><img src="flower8.png" alt="擬真花" loading="lazy"></div>           
+
+        </div>
+    </div>
+
+    <!-- 手工系列 -->
+    <div id="handmadeSeries" class="gallery-series">
+        <div class="series-header"><div class="series-title"><span>🎁 手工飾品・用心創作 🧵</span></div></div>
+        <div class="gallery-grid">
+            <div class="gallery-item" data-img="accessories1.png" data-caption="手工裝飾品"><img src="accessories1.png" alt="手工裝飾品" loading="lazy"></div>
+            <div class="gallery-item" data-img="accessories2.png" data-caption="手工裝飾品"><img src="accessories2.png" alt="手工裝飾品 loading="lazy"></div>
+            <div class="gallery-item" data-img="accessories3.png" data-caption="手工裝飾品"><img src="accessories3.png" alt="手工裝飾品" loading="lazy"></div>
+            <div class="gallery-item" data-img="accessories4.png" data-caption="手工裝飾品"><img src="accessories4.png" alt="手工裝飾品" loading="lazy"></div>
+            <div class="gallery-item" data-img="accessories5.png" data-caption="手工裝飾品"><img src="accessories5.png" alt="手工裝飾品" loading="lazy"></div>
+            <div class="gallery-item" data-img="accessories6.png" data-caption="手工裝飾品"><img src="accessories6.png" alt="手手工裝飾品" loading="lazy"></div>
+            <div class="gallery-item" data-img="accessories7.png" data-caption="手工裝飾品"><img src="accessories7.png" alt="手工裝飾品" loading="lazy"></div>
+            <div class="gallery-item" data-img="accessories8.png" data-caption="手工裝飾品"><img src="accessories8.png" alt="手工裝飾品 loading="lazy"></div>
+            <div class="gallery-item" data-img="accessories9.png" data-caption="手工裝飾品"><img src="accessories9.png" alt="手工裝飾品" loading="lazy"></div>
+            <div class="gallery-item" data-img="accessories10.png" data-caption="手工裝飾品"><img src="accessories10.png" alt="手工裝飾品" loading="lazy"></div>
+            <div class="gallery-item" data-img="accessories11.png" data-caption="手工裝飾品"><img src="accessories11.png" alt="手工裝飾品" loading="lazy"></div>
+            <div class="gallery-item" data-img="accessories12.png" data-caption="手工裝飾品"><img src="accessories12.png" alt="手手工裝飾品" loading="lazy"></div>
+            <div class="gallery-item" data-img="accessories13.png" data-caption="手工裝飾品"><img src="accessories13.png" alt="手手工裝飾品" loading="lazy"></div>
+            <div class="gallery-item" data-img="accessories14.png" data-caption="手工裝飾品"><img src="accessories14.png" alt="手手工裝飾品" loading="lazy"></div>
+            <div class="gallery-item" data-img="accessories15.png" data-caption="手工裝飾品"><img src="accessories15.png" alt="手手工裝飾品" loading="lazy"></div>
+        </div>
+    </div>
+
+    <!-- 其他系列 -->
+    <div id="otherSeries" class="gallery-series">
+        <div class="series-header"><div class="series-title"><span>🎨 靈感匯集・無限創意 🌟</span></div></div>
+        <div class="gallery-grid">
+            <div class="gallery-item" data-img="other1.png" data-caption="其他作品"><img src="other1.png" alt="其他作品" loading="lazy"></div>
+            <div class="gallery-item" data-img="other2.png" data-caption="其他作品"><img src="other2.png" alt="其他作品" loading="lazy"></div>
+            <div class="gallery-item" data-img="other3.png" data-caption="其他作品"><img src="other3.png" alt="其他作品" loading="lazy"></div>
+            <div class="gallery-item" data-img="other4.png" data-caption="其他作品"><img src="other4.png" alt="其他作品" loading="lazy"></div>
+            <div class="gallery-item" data-img="other5.png" data-caption="其他作品"><img src="other5.png" alt="其他作品" loading="lazy"></div>
+            <div class="gallery-item" data-img="other6.png" data-caption="其他作品"><img src="other6.png" alt="其他作品" loading="lazy"></div>
+            <div class="gallery-item" data-img="other7.png" data-caption="其他作品"><img src="other7.png" alt="其他作品" loading="lazy"></div>
+            <div class="gallery-item" data-img="other8.png" data-caption="其他作品"><img src="other8.png" alt="其他作品" loading="lazy"></div>      
+        </div>
+    </div>
+
+    <div class="footer-signature">
+        <span>手作溫度</span> <span>·</span> <span>創意黏土</span> <span>·</span> <span>傳承美學</span>
+    </div>
+</div>
+
+<!-- 燈箱結構 -->
+<div id="lightbox" class="lightbox">
+    <button class="close-lightbox" id="closeLightboxBtn">✕</button>
+    <img class="lightbox-img" id="lightboxImg" alt="放大的作品">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+<script>
+    (function() {
+        // 系列切換邏輯
+        const seriesMap = {
+            fruit: document.getElementById('fruitSeries'),
+            flower: document.getElementById('flowerSeries'),
+            handmade: document.getElementById('handmadeSeries'),
+            other: document.getElementById('otherSeries')
+        };
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        
+        function switchSeries(seriesId) {
+            Object.values(seriesMap).forEach(series => { if(series) series.classList.remove('active-series'); });
+            const activeSeries = seriesMap[seriesId];
+            if(activeSeries) activeSeries.classList.add('active-series');
+            tabButtons.forEach(btn => {
+                const btnSeries = btn.getAttribute('data-series');
+                if(btnSeries === seriesId) btn.classList.add('active');
+                else btn.classList.remove('active');
+            });
+        }
+        
+        tabButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const seriesId = btn.getAttribute('data-series');
+                if(seriesId && seriesMap[seriesId]) {
+                    switchSeries(seriesId);
+                    setTimeout(() => { seriesMap[seriesId].scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 80);
+                }
+            });
+        });4
+        
+        // 確保初始狀態
+        if(!document.querySelector('.gallery-series.active-series')) switchSeries('fruit');
+        
+        // ---------- 圖片放大燈箱功能 (點擊任意 .gallery-item 觸發) ----------
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+        const closeBtn = document.getElementById('closeLightboxBtn');
+        
+        // 為所有 .gallery-item 綁定點擊事件，讀取 data-img 與 data-caption 或內部文字
+        const allItems = document.querySelectorAll('.gallery-item');
+        
+        function openLightbox(imgUrl, captionText) {
+            if(!lightbox || !lightboxImg) return;
+            lightboxImg.src = imgUrl;
+            lightboxImg.alt = captionText || '作品放大圖';
+            if(lightboxCaption) lightboxCaption.textContent = captionText || '';
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // 避免背景滾動
+        }
+        
+        function closeLightbox() {
+            if(lightbox) lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        // 綁定點擊放大
+        allItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                // 避免點擊到內部圖片冒泡引起的重複 (但無傷大雅)
+                let imgUrl = item.getAttribute('data-img');
+                let caption = item.getAttribute('data-caption');
+                // 若無 data-caption 則從 .gallery-caption 取得
+                if(!caption) {
+                    const capDiv = item.querySelector('.gallery-caption');
+                    if(capDiv) caption = capDiv.innerText;
+                }
+                if(!imgUrl) {
+                    // 後備：嘗試取得內部圖片src並換高解析 (但我們已經內建data-img)
+                    const innerImg = item.querySelector('img');
+                    if(innerImg) imgUrl = innerImg.src;
+                }
+                if(imgUrl) {
+                    // 提升解析度：如果原圖是300px，就替換為高解析版本 (已使用高解析 w=800)
+                    openLightbox(imgUrl, caption || '盛飛樓手作作品');
+                } else {
+                    console.warn('無法取得圖片連結');
+                }
+            });
+        });
+        
+        // 關閉燈箱事件
+        if(closeBtn) closeBtn.addEventListener('click', closeLightbox);
+        if(lightbox) lightbox.addEventListener('click', (e) => {
+            if(e.target === lightbox) closeLightbox();
+        });
+        // 鍵盤支援 Esc 關閉
+        document.addEventListener('keydown', (e) => {
+            if(e.key === 'Escape' && lightbox && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+        
+        // 導覽列行為保留
+        const navLinks = document.querySelectorAll('.navbar .nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => { console.log(`導覽: ${link.getAttribute('href')}`); });
+        });
+        
+        // 圖片懶加載輔助 & alt 優化
+        const allImgs = document.querySelectorAll('.gallery-item img');
+        allImgs.forEach(img => { if(!img.getAttribute('loading')) img.setAttribute('loading', 'lazy'); });
+    })();
+</script>
+</body>
+</html>
