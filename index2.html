@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description" content="盛飛樓黏土工作室課程專區｜初班、進階＋証書課程｜彈性預約，小班教學。">
+    <title>盛飛樓 · 黏土工作室｜初班．進階．証書課程</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #ffdbd8 0%, #ffc9c2 100%);
+            font-family: "Inter", sans-serif;
+            color: #3d2f2b;
+            line-height: 1.5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem 1.5rem;
+        }
+
+        .card {
+            max-width: 1280px;
+            width: 100%;
+            background-color: #fffaf9;
+            border-radius: 32px;
+            box-shadow: 0 20px 40px -12px rgba(180, 110, 100, 0.25), 0 8px 24px -6px rgba(140, 80, 70, 0.15);
+            overflow: hidden;
+            padding: 3rem 3rem 4rem 3rem;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 220, 215, 0.6);
+        }
+
+        /* 頂部區域 */
+        .top-header {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.8rem;
+            border-bottom: 2px solid #fbe0d7;
+            padding-bottom: 1rem;
+        }
+        .brand-name {
+            font-family: "Playfair Display", serif;
+            font-size: 2.3rem;
+            font-weight: 500;
+            color: #633d33;
+            letter-spacing: 1px;
+            line-height: 1.2;
+            display: inline-flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+        .brand-name span {
+            background: linear-gradient(135deg, #6a4238, #a56153);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .brand-flower {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            vertical-align: middle;
+            transition: transform 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .brand-flower:hover {
+            transform: scale(1.05);
+        }
+        .brand-text {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.2rem;
+            flex-wrap: wrap;
+        }
+
+        /* 左右並排區塊 */
+        .intro-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 1rem 0 2rem 0;
+            align-items: center;
+        }
+        .intro-text {
+            flex: 2;
+            min-width: 250px;
+        }
+        .intro-image {
+            flex: 1.2;
+            min-width: 240px;
+            text-align: center;
+        }
+        .kid-img {
+            width: 100%;
+            max-width: 380px;
+            border-radius: 36px;
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.2);
+            border: 4px solid #ffe0d7;
+            object-fit: cover;
+            aspect-ratio: 1 / 1;
+            transition: transform 0.2s;
+        }
+        .kid-img:hover {
+            transform: scale(1.02);
+        }
+
+        .divider-short {
+            width: 70px;
+            height: 3px;
+            background-color: #e7b4a8;
+            margin: 1.5rem 0 2rem 0;
+            border-radius: 2px;
+        }
+
+        .hero-tagline {
+            font-size: 1rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #b28278;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-family: "Playfair Display", serif;
+            font-size: 4rem;
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: #522e28;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 i {
+            font-style: italic;
+            font-weight: 300;
+            color: #bc7a6e;
+        }
+
+        .lead-text {
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: #7b4d43;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
+
+        .body-text {
+            font-size: 1.1rem;
+            color: #684b42;
+            font-weight: 350;
+            line-height: 1.6;
+        }
+
+        h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 2.3rem;
+            font-weight: 350;
+            color: #5f3b33;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        h2 em {
+            font-style: italic;
+            color: #c7877b;
+            font-weight: 300;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #5a3730;
+            margin-bottom: 0.75rem;
+        }
+
+        .philosophy-block {
+            background-color: #fff3f0;
+            padding: 2.5rem 3rem;
+            border-radius: 24px;
+            margin: 2.5rem 0 1.8rem 0;
+            border: 1px solid #ffd9d0;
+            box-shadow: inset 0 0 0 1px rgba(255, 240, 235, 0.9);
+        }
+
+        .philosophy-text {
+            font-size: 1.5rem;
+            font-weight: 330;
+            line-height: 1.5;
+            color: #4b352f;
+            font-style: normal;
+        }
+
+        .philosophy-text::before {
+            content: "“";
+            font-family: "Playfair Display", serif;
+            font-size: 3.5rem;
+            color: #e6aa9e;
+            line-height: 1;
+            vertical-align: middle;
+            margin-right: 0.15rem;
+        }
+
+        .philosophy-text::after {
+            content: "”";
+            font-family: "Playfair Display", serif;
+            font-size: 3.5rem;
+            color: #e6aa9e;
+            line-height: 1;
+            vertical-align: bottom;
+            margin-left: 0.15rem;
+        }
+
+        /* 卡片按鈕樣式 */
+        .craft-btn-wrapper {
+            text-align: center;
+            margin: 1.5rem 0 1rem 0;
+        }
+        .craft-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, #f0c9be, #e3b4a6);
+            padding: 0.9rem 2rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #542e26;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 10px rgba(140, 80, 70, 0.2);
+            font-family: "Inter", sans-serif;
+        }
+        .craft-button:hover {
+            background: linear-gradient(135deg, #e6bcaf, #d9a696);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(140, 80, 70, 0.25);
+        }
+        .craft-button:active {
+            transform: translateY(1px);
+        }
+        .button-icon {
+            font-size: 1.5rem;
+        }
+
+        /* 圖片展示區 */
+        .gallery-section {
+            margin: 1.5rem 0 1rem 0;
+            padding: 1rem;
+            background: #fff9f5;
+            border-radius: 48px;
+            border: 1px solid #ffded2;
+            transition: opacity 0.25s ease, transform 0.2s ease;
+            display: none;
+            opacity: 0;
+            transform: translateY(4px);
+        }
+        .gallery-section.show {
+            display: block;
+            animation: fadeSlideUp 0.35s ease forwards;
+        }
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+        .gallery-item {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+            transition: 0.2s;
+            border: 1px solid #fad9cf;
+        }
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -8px rgba(100, 60, 50, 0.2);
+        }
+        .gallery-item img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            display: block;
+            border-bottom: 2px solid #ffede5;
+        }
+        .gallery-caption {
+            padding: 0.5rem;
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #784e42;
+            background: #fffaf8;
+        }
+        .close-gallery {
+            display: inline-block;
+            margin-top: 1rem;
+            background: #ffe0d6;
+            border: none;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #763e32;
+            cursor: pointer;
+            transition: 0.1s;
+        }
+        .close-gallery:hover {
+            background: #f7cdc0;
+        }
+
+        /* 暑期班主卡連結 */
+        .single-course {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0 0.5rem 0;
+        }
+        .course-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            flex: 0 1 500px;
+            background: #ffeae5;
+            border-radius: 28px;
+            padding: 2rem 2rem;
+            border: 1px solid #fccac0;
+            transition: 0.2s ease;
+            box-shadow: 0 4px 12px rgba(230, 150, 140, 0.1);
+            text-align: center;
+            cursor: pointer;
+        }
+        .course-link:hover {
+            background: #fff5f2;
+            border-color: #f6b2a4;
+            box-shadow: 0 10px 25px -10px #cb8d80;
+            transform: translateY(-2px);
+        }
+        .course-level {
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            color: #d6897b;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+        }
+        .course-title {
+            font-size: 2.5rem;
+            font-weight: 350;
+            font-family: "Playfair Display", serif;
+            color: #653c33;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        .course-desc {
+            font-size: 1rem;
+            color: #7b554a;
+            font-weight: 350;
+            border-top: 1px dashed #e7b7ab;
+            padding-top: 1rem;
+            margin-top: 0.8rem;
+        }
+        .course-desc h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 1.6rem;
+            margin-top: 0.8rem;
+            margin-bottom: 0;
+            color: #c06656;
+            font-weight: 500;
+            letter-spacing: normal;
+        }
+
+        .hand-drawn-line {
+            display: flex;
+            gap: 6px;
+            margin: 1rem 0 1.5rem 0;
+        }
+        .dot {
+            width: 8px;
+            height: 8px;
+            background-color: #eeb9ae;
+            border-radius: 50%;
+        }
+
+        .highlight-pink {
+            background-color: #ffefea; 
+            padding: 2rem 2.5rem; 
+            border-radius: 30px;
+            border: 1px solid #ffd7cf;
+        }
+
+        .summer-detail-section {
+            background: #fffaf5;
+            border-radius: 40px;
+            margin: 2.2rem 0 2rem 0;
+            padding: 2rem 2rem;
+            border: 1px solid #ffded5;
+            box-shadow: 0 12px 24px -12px rgba(170, 100, 85, 0.12);
+        }
+        .section-badge {
+            display: inline-block;
+            background: #f3cfc4;
+            color: #6a3c32;
+            border-radius: 40px;
+            padding: 0.2rem 1.2rem;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            font-family: inherit;
+            font-weight: normal;
+        }
+        h2.section-badge {
+            font-size: 0.8rem;
+            font-weight: normal;
+            letter-spacing: 1px;
+            display: inline-block;
+            background: #f3cfc4;
+            color: #6a3c32;
+            border-radius: 40px;
+            padding: 0.2rem 1.2rem;
+            margin-bottom: 1.5rem;
+            width: auto;
+        }
+        .two-camps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 1rem;
+            justify-content: center;
+        }
+        .camp-card {
+            flex: 1 1 340px;
+            background: #fff9f6;
+            border-radius: 32px;
+            padding: 1.8rem;
+            border: 1px solid #fad5ca;
+            transition: all 0.2s;
+            max-width: 500px;
+        }
+        .camp-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -12px #d9b2a4;
+        }
+        .camp-title {
+            font-family: "Playfair Display", serif;
+            font-size: 2rem;
+            color: #6e3e33;
+            margin-bottom: 0.5rem;
+        }
+        .age-tag {
+            background: #ffe1d9;
+            display: inline-block;
+            padding: 0.2rem 0.9rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #b55d4b;
+            margin-bottom: 1rem;
+        }
+        .price-box {
+            font-size: 1.65rem;
+            font-weight: 700;
+            color: #7f4033;
+            margin: 1rem 0 0.3rem;
+        }
+        .small-meta {
+            font-size: 0.8rem;
+            color: #b27a6c;
+        }
+        .flexible {
+            margin-top: 1rem;
+            background: #fff3ef;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* 聯絡資訊區塊 */
+        .contact-section {
+            background: linear-gradient(135deg, #fff6f2 0%, #fff0eb 100%);
+            border-radius: 30px;
+            padding: 2rem 2.5rem;
+            margin: 2rem 0 1.8rem 0;
+            border: 1px solid #ffdbd2;
+            box-shadow: 0 4px 14px rgba(190, 120, 100, 0.08);
+        }
+        .contact-title {
+            font-family: "Playfair Display", serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: #633d33;
+            margin-bottom: 1.2rem;
+            display: inline-block;
+            border-bottom: 2px solid #f2c8bd;
+            padding-bottom: 0.3rem;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin-top: 1rem;
+        }
+        .contact-item {
+            display: flex;
+            gap: 0.9rem;
+            align-items: flex-start;
+            background: #ffffffc9;
+            padding: 1rem 1.2rem;
+            border-radius: 28px;
+            backdrop-filter: blur(2px);
+            border: 1px solid #ffe0d7;
+            transition: background 0.2s;
+        }
+        .contact-item:hover {
+            background: #fff5f1;
+        }
+        .contact-icon {
+            font-size: 1.7rem;
+            min-width: 2rem;
+            text-align: center;
+            color: #e0a696;
+        }
+        .contact-detail {
+            flex: 1;
+        }
+        .contact-detail strong {
+            display: block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #c28272;
+            margin-bottom: 0.25rem;
+        }
+        .contact-detail a, .contact-detail span {
+            font-size: 1rem;
+            color: #5b3c33;
+            text-decoration: none;
+            font-weight: 500;
+            word-break: break-all;
+        }
+        .contact-detail a:hover {
+            color: #c66e5c;
+            text-decoration: underline;
+        }
+
+        .footer-signature {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 2rem;
+            gap: 1rem;
+            color: #dbaa9f;
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 800px) {
+            .card {
+                padding: 2rem 1.5rem;
+            }
+            h1 {
+                font-size: 3rem;
+            }
+            .philosophy-block {
+                padding: 1.8rem;
+            }
+            .philosophy-text {
+                font-size: 1.3rem;
+            }
+            .summer-detail-section {
+                padding: 1.5rem;
+            }
+            .camp-title {
+                font-size: 1.7rem;
+            }
+            .brand-name {
+                font-size: 1.8rem;
+            }
+            .brand-flower {
+                width: 80px;
+                height: 80px;
+            }
+            .course-desc h2 {
+                font-size: 1.3rem;
+            }
+        }
+        @media (max-width: 600px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .two-camps {
+                flex-direction: column;
+                align-items: center;
+            }
+            .brand-name {
+                font-size: 1.4rem;
+                flex-wrap: wrap;
+            }
+            .brand-flower {
+                width: 70px;
+                height: 70px;
+            }
+            .intro-row {
+                flex-direction: column;
+            }
+            .kid-img {
+                max-width: 280px;
+                margin: 0 auto;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            }
+            .camp-card {
+                max-width: 100%;
+            }
+            .course-desc h2 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <!-- 頂部：公司名稱 + 花圖片 (修改2: 黏土工作室) -->
+    <div class="top-header">
+        <div class="brand-name">
+            <span class="brand-text">盛飛樓</span>
+            <img class="brand-flower" src="logo1.png" alt="盛飛樓logo" loading="lazy">
+            <span class="brand-text">· 黏土工作室</span>
+        </div>
+    </div>
+
+    <!-- 左右並排：文字 + 小孩圖片 -->
+    <div class="intro-row">
+        <div class="intro-text">
+            <div class="hero-tagline">創意，手作，藝術。</div>
+            <h1>發現你的<br>獨特之處 <i>· 手作靈感</i></h1>
+            <p class="lead-text">
+                我們致力於提供優質的藝術與手工課程，<br>助學生們發展創意潛能並創作出獨一無二的作品。
+            </p>
+            <div class="body-text">
+                <strong>專業手工教學</strong><br>
+                我們位於香港的藝術手工課程提供者，致力於教授各種創意和手工藝技巧，讓學生發揮創意、放鬆身心享受手作的樂趣。無論是初學者還是進階學員，都能在此找到共鳴。
+            </div>
+        </div>
+        <div class="intro-image">
+            <img class="kid-img" src="K2.png" alt="小朋友開心手作" loading="lazy">
+        </div>
+    </div>
+
+    <div class="divider-short"></div>
+
+    <h2>創意教學，<em>藝術分享</em> <span style="font-size: 1.8rem; margin-left: 0.5rem;">· 我們的理念</span></h2>
+    <div class="philosophy-block">
+        <div class="philosophy-text">
+            「藝術手工教學」是一個創意教學平台，提供多元化的藝術與手工課程，讓學生們能夠發掘自己的內在節奏，將靈感塑造成真實。
+        </div>
+        <div style="margin-top: 1.4rem; font-size: 1.2rem; color: #7b5348; border-left: 3px solid #f0bfb3; padding-left: 1.2rem;">
+            我們提供專業的藝術與手工課程，讓學員能夠在學習過程中，學會如何將藝術與手工結合。無論您是想學習或想要提升您的藝術能力，我們都為您提供適合的課程。
+        </div>
+    </div>
+
+    <!-- 暑期班主卡片：直接連結到暑期班.html -->
+    <h3 style="font-weight: 400; margin-bottom: 0.5rem;">夏日限定 · 創造全集中</h3>
+    <div class="hand-drawn-line">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+    </div>
+    <div class="single-course">
+        <a href="暑期班.html" class="course-link">
+            <div class="course-level">🎨 夏季特別企劃</div>
+            <div class="course-title">暑期班課程</div>
+            <div class="course-desc">
+                🌟 小班制 · 含課程材料包 🌟
+                <h2>🌐 歡迎查詢👈</h2>
+            </div>
+        </a>
+    </div>
+
+    <!-- 課程詳細內容區塊：兩個課程並排（進階+証書） -->
+    <div id="summerDetailsSection" class="summer-detail-section">
+        <div class="age-tag"><h3>✨ 課程專區 ✨</h3></div>
+        <h3 style="font-family: 'Playfair Display'; font-size: 1.9rem; margin-bottom: 0.5rem;">🎨 進階創作 · 專業認證 🎓</h3>
+        <p style="margin-bottom: 1.5rem; color: #7f5549;">從立體擬真到微縮工藝｜專業導師手把手引領美學升級</p>
+        
+        <div class="two-camps">
+            <!-- 進階課程 -->
+            <div class="camp-card">
+                <div class="camp-title">🌱 進階課程</div>
+                <div class="age-tag">🎯 兒童・青少年｜立體黏土創作</div>
+                <p>
+                    <strong>🌟 課程重點 🌟</strong><br>
+                    1. 進階擬真工藝<br>
+                    2. 人偶與公仔雕塑<br>
+                    3. 高級調色與材質擬真技法<br>
+                    4. 微縮模型與極細緻工藝
+                </p>
+                <div class="small-meta" style="margin-top: 8px;">✧ 從黏土基礎到進階造型創造作品 ✧</div>
+            </div>
+            
+            <!-- 証書課程 -->
+            <div class="camp-card">
+                <div class="camp-title">🎓 証書課程</div>
+                <div class="age-tag">🎯 認證學員｜專業陳列・拼盤藝術</div>
+                <p>
+                    <strong>🌟 課程重點 🌟</strong><br>
+                    1. 進階擬真工藝<br>
+                    2. 人偶與公仔雕塑<br>
+                    3. 高級調色與材質擬真技法<br>
+                    4. 微縮模型與極細緻工藝<br>
+                    5. 骨架搭建與大型作品塑形<br>
+                    6. 複合媒材與後處理工藝<br>
+                    7. 獲認可課程畢業証書
+                </p>
+                <div class="small-meta" style="margin-top: 8px;">✧ 從擺盤設計到餐桌美學，完成專業拼盤作品 ✧</div>
+            </div>
+        </div>
+
+        <!-- 課程手工藝成品展出按鈕與畫廊 -->
+        <div class="craft-btn-wrapper">
+            <button id="showCraftGalleryBtn" class="craft-button" aria-expanded="false">
+                <span class="button-icon">🖼️</span> 課程手工藝成品展出👈
+            </button>
+        </div>
+        <div id="craftGallery" class="gallery-section">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                <h4 style="font-family: 'Playfair Display'; font-size: 1.5rem; color:#784e42;">✨ 精彩手作範例 ✨</h4>
+                <button id="closeGalleryBtn" class="close-gallery">✖ 收起展品👈</button>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="s1.png" alt="手作成品"><div class="gallery-caption">手作成品</div></div>
+                <div class="gallery-item"><img src="s2.png" alt="手作成品"><div class="gallery-caption">手作成品</div></div>
+                <div class="gallery-item"><img src="s3.png" alt="手作成品"><div class="gallery-caption">手作成品</div></div>
+                <div class="gallery-item"><img src="s4.png" alt="手作成品"><div class="gallery-caption">手作成品</div></div>
+                <div class="gallery-item"><img src="s5.jpg" alt="手作成品"><div class="gallery-caption">手作成品</div></div>
+                <div class="gallery-item"><img src="s6.jpg" alt="手作成品"><div class="gallery-caption">手作成品</div></div>
+                <div class="gallery-item"><img src="s7.jpg" alt="手作成品"><div class="gallery-caption">手作成品</div></div>
+                <div class="gallery-item"><img src="s8.png" alt="手作成品"><div class="gallery-caption">手作成品</div></div>
+                <div class="gallery-item"><img src="s9.jpg" alt="手作成品"><div class="gallery-caption">手作成品</div></div>
+                <div class="gallery-item"><img src="s10.jpg" alt="手作成品"><div class="gallery-caption">手作成品</div></div>
+                <div class="gallery-item"><img src="s11.jpg" alt="手作成品"><div class="gallery-caption">手作成品</div></div>
+                <div class="gallery-item"><img src="s12.jpg" alt="手作成品"><div class="gallery-caption">手作成品</div></div>
+                <div class="gallery-item"><img src="s13.jpg" alt="手作成品"><div class="gallery-caption">手作成品</div></div>
+                <div class="gallery-item"><img src="s14.jpg" alt="手作成品"><div class="gallery-caption">手作成品</div></div>
+
+            </div>    
+        </div>
+
+        <!-- 報名查詢區塊 -->
+        <div style="margin-top: 1.8rem; text-align: center; background: #FFEFEA; border-radius: 30px; padding: 0.8rem;">
+            📞 報名或查詢請透過 WhatsApp / 致電 6626 2756，歡迎預約體驗！
+        </div>
+    </div>
+
+    <!-- 創意藝術教學區塊 -->
+    <div class="highlight-pink" style="margin-top: 0.5rem;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+            <div>
+                <h3 style="margin-bottom: 0.25rem; font-weight: 450; color:#633d33;">創意藝術教學</h3>
+                <p style="font-size: 1.15rem; max-width: 600px; color: #7f5245;">
+                    我們是一個位於香港的藝術手工教學機構，致力於提供專業的課程和指導，讓學生在學習過程中，獲得靈感，並透過手作技巧創造出獨特的作品。
+                </p>
+            </div>
+            <div style="font-size: 3rem; color: #efbfb5; font-family: 'Playfair Display';">✦</div>
+        </div>
+        <div style="margin-top: 1.5rem; font-style: italic; color: #c38678; border-top: 1px solid #f8cfc5; padding-top: 1.2rem; font-size: 1rem;">
+            「讓雙手思考，讓藝術生活化 — 我們在香港陪你一起創作。」
+        </div>
+    </div>
+
+    <!-- 聯絡資訊區塊 -->
+    <div class="contact-section">
+        <div class="contact-title">✧ 聯絡與查詢 ✧</div>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <div class="contact-icon">📞</div>
+                <div class="contact-detail">
+                    <strong>查詢熱線 / WhatsApp</strong>
+                    <a href="https://wa.me/85266262756" target="_blank" rel="noopener noreferrer">6626 2756👈</a>
+                    <span style="display: block; font-size: 0.8rem; color:#aa7c6e;">點擊直接 WhatsApp 對話</span>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">📧</div>
+                <div class="contact-detail">
+                    <strong>電郵</strong>
+                    <a href="mailto:influencership@yahoo.com">influencership@yahoo.com</a>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">🌐</div>
+                <div class="contact-detail">
+                    <strong>官方網頁</strong>
+                    <a href="https://inflship.com" target="_blank" rel="noopener noreferrer">https://inflship.com</a>
+                </div>
+            </div>
+            <div class="contact-item address-block">
+                <div class="contact-icon">🏠</div>
+                <div class="contact-detail">
+                    <strong>工作室地址</strong>
+                    <a href="https://maps.google.com/?q=荔枝角長沙灣道742-748號鴻昌工廠大厦7字樓F座709室" target="_blank" rel="noopener noreferrer">
+                        九龍荔枝角長沙灣道742-748號<br>鴻昌工廠大厦7字樓F座709室
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-signature">
+        <span>創意</span> <span>·</span> <span>手作</span> <span>·</span> <span>藝術</span>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const showBtn = document.getElementById('showCraftGalleryBtn');
+        const galleryDiv = document.getElementById('craftGallery');
+        const closeBtn = document.getElementById('closeGalleryBtn');
+
+        if (showBtn && galleryDiv && closeBtn) {
+            const updateButtonState = (isOpen) => {
+                showBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            };
+
+            showBtn.addEventListener('click', () => {
+                const isVisible = galleryDiv.classList.contains('show');
+                if (!isVisible) {
+                    galleryDiv.classList.add('show');
+                    updateButtonState(true);
+                    galleryDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                } else {
+                    galleryDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            });
+            closeBtn.addEventListener('click', () => {
+                galleryDiv.classList.remove('show');
+                updateButtonState(false);
+            });
+            updateButtonState(false);
+        }
+
+        const addressLink = document.querySelector('.address-block a');
+        if (addressLink && !addressLink.getAttribute('target')) {
+            addressLink.setAttribute('target', '_blank');
+            addressLink.setAttribute('rel', 'noopener noreferrer');
+        }
+    })();
+</script>
+</body>
+</html>
