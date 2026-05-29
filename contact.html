@@ -219,6 +219,12 @@
             color: #aa7c6e;
             margin-top: 0.25rem;
         }
+        .social-note {
+            display: block;
+            font-size: 0.75rem;
+            color: #aa7c6e;
+            margin-top: 0.25rem;
+        }
 
         /* 回饋小花紋 */
         .footer-signature {
@@ -308,7 +314,7 @@
         <a href="contact.html" class="nav-link active">📞 報名查詢</a>
     </div>
 
-    <!-- 聯絡資訊區塊 (依需求完整嵌入，無任何圖片干擾) -->
+    <!-- 聯絡資訊區塊 (新增 Instagram 聯絡方式，顯示文字為 @inflship) -->
     <div class="contact-section">
         <div class="contact-title">✧ 聯絡與查詢 ✧</div>
         <div class="contact-grid">
@@ -327,6 +333,15 @@
                 <div class="contact-detail">
                     <strong>電郵</strong>
                     <a href="mailto:influencership@yahoo.com">influencership@yahoo.com</a>
+                </div>
+            </div>
+            <!-- Instagram 社交媒體 - 顯示文字改為 @inflship -->
+            <div class="contact-item">
+                <div class="contact-icon">📷</div>
+                <div class="contact-detail">
+                    <strong>Instagram</strong>
+                    <a href="https://www.instagram.com/inflship" target="_blank" rel="noopener noreferrer">@inflship</a>
+                    <span class="social-note">追蹤我們 · 最新作品與課程動態</span>
                 </div>
             </div>
             <!-- 官方網頁 -->
@@ -376,7 +391,7 @@
         });
     });
 
-    // 確保所有 .contact-detail 內的電話 / 信箱 / 地圖外連保持預設行為，不影響原本跳轉
+    // 確保所有 .contact-detail 內的電話 / 信箱 / Instagram / 地圖外連保持預設行為，不影響原本跳轉
     // 沒有任何全域鎖定；所有連結皆正常運作。
 </script>
 </body>
