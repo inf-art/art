@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description" content="盛飛樓黏土工作室｜迷你花及盤境恆常班｜精緻花藝課程｜彈性預約｜材料全包">
+    <title>迷你花 · 盤境課程｜盛飛樓黏土工作室</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #ffdbd8 0%, #ffc9c2 100%);
+            font-family: "Inter", sans-serif;
+            color: #3d2f2b;
+            line-height: 1.5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem 1.5rem;
+        }
+
+        .card {
+            max-width: 1100px;
+            width: 100%;
+            background-color: #fffaf9;
+            border-radius: 32px;
+            box-shadow: 0 20px 40px -12px rgba(180, 110, 100, 0.25), 0 8px 24px -6px rgba(140, 80, 70, 0.15);
+            overflow: hidden;
+            padding: 3rem 3rem 4rem 3rem;
+            border: 1px solid rgba(255, 220, 215, 0.6);
+        }
+
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+        }
+        .brand-name {
+            font-family: "Playfair Display", serif;
+            font-size: 2.4rem;
+            font-weight: 500;
+            color: #633d33;
+            letter-spacing: 1px;
+            line-height: 1.2;
+            display: inline-flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+        .brand-name span {
+            background: linear-gradient(135deg, #6a4238, #a56153);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .brand-flower {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: transform 0.2s ease;
+        }
+        .brand-flower:hover {
+            transform: scale(1.05);
+        }
+
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            gap: 0.5rem 2rem;
+            margin-top: 0.25rem;
+            margin-bottom: 2rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #fbe0d7;
+        }
+        .nav-link {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #8b5c50;
+            text-decoration: none;
+            padding: 0.4rem 0;
+            transition: all 0.2s ease;
+            position: relative;
+            letter-spacing: 0.3px;
+        }
+        .nav-link:hover {
+            color: #c26e5c;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #e7b4a8;
+            transition: width 0.2s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .nav-link.active {
+            color: #c26e5c;
+            font-weight: 600;
+        }
+        .nav-link.active::after {
+            width: 100%;
+            background: #d9998a;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 4 / 5;
+            border-radius: 40px;
+            margin: 0 auto 1.5rem auto;
+            box-shadow: 0 6px 16px rgba(140, 90, 80, 0.12);
+            overflow: hidden;
+        }
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .hero-image img:hover {
+            transform: scale(1.02);
+        }
+
+        .page-title {
+            font-family: "Playfair Display", serif;
+            font-size: 2.6rem;
+            font-weight: 500;
+            color: #573e36;
+            margin-bottom: 0.25rem;
+            line-height: 1.2;
+        }
+        .page-title small {
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: #b08578;
+            display: block;
+            margin-top: 0.1rem;
+        }
+        .page-sub {
+            color: #b08578;
+            margin-bottom: 2rem;
+            border-left: 3px solid #f0cbbc;
+            padding-left: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0 2rem 0;
+        }
+        .feature-item {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 0.8rem 0.8rem 1rem 0.8rem;
+            text-align: center;
+            border: 1px solid #f5ded6;
+            transition: 0.2s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(140, 90, 80, 0.06);
+        }
+        .feature-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -8px rgba(140, 90, 80, 0.18);
+        }
+        .feature-item img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 20px;
+            display: block;
+            background: #f0e0d8;
+        }
+        .feature-item h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #9e5f4e;
+            margin-top: 0.6rem;
+        }
+
+        .detail-card {
+            background: #ffffff;
+            border-radius: 40px;
+            padding: 2rem 2rem;
+            margin: 1.5rem 0;
+            border: 1px solid #ffded7;
+            box-shadow: 0 8px 20px -8px rgba(140, 90, 80, 0.08);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .price-box {
+            display: flex;
+            flex-direction: column;
+        }
+        .price-box .label {
+            font-size: 0.9rem;
+            color: #b08578;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+        .price-box .amount {
+            font-family: "Playfair Display", serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: #9e5f4e;
+            line-height: 1.1;
+        }
+        .price-box .amount small {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #b08578;
+            margin-left: 0.3rem;
+        }
+        .meta-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 2rem;
+        }
+        .meta-tag {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1rem;
+            color: #5f443b;
+            background: #faf0ea;
+            padding: 0.4rem 1.2rem;
+            border-radius: 60px;
+        }
+        .meta-tag i {
+            color: #c4816e;
+            font-size: 1.2rem;
+        }
+
+        .flex-time {
+            background: #fef8f5;
+            border-radius: 60px;
+            padding: 1rem 2rem;
+            text-align: center;
+            border: 1px dashed #e9cbc1;
+            margin: 1rem 0 1.8rem 0;
+        }
+        .flex-time i {
+            color: #c4816e;
+            margin-right: 0.6rem;
+        }
+        .flex-time span {
+            font-weight: 500;
+            color: #633d33;
+        }
+
+        .flex-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem;
+            margin: 1.8rem auto 0.5rem auto;
+        }
+        .btn-whatsapp, .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: #25D366;
+            color: white;
+            padding: 0.8rem 2.2rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.3px;
+        }
+        .btn-whatsapp {
+            background: #25D366;
+            border: 1px solid #20b859;
+        }
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 18px -6px rgba(37, 211, 102, 0.4);
+        }
+        .btn-outline {
+            background: #fdf0ea;
+            color: #b26858;
+            border: 1px solid #e9cbc1;
+            box-shadow: none;
+        }
+        .btn-outline:hover {
+            background: #ffe6de;
+            border-color: #d8aa9c;
+            transform: translateY(-2px);
+            color: #9e5b4a;
+        }
+        .btn-whatsapp i, .btn-outline i {
+            font-size: 1.2rem;
+        }
+
+        .footer-signature {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 2.5rem;
+            gap: 1rem;
+            color: #dbaa9f;
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(4px);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .lightbox.show {
+            display: flex;
+        }
+        .lightbox .close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: #fff;
+            font-size: 3rem;
+            font-weight: 300;
+            cursor: pointer;
+            transition: 0.2s;
+            line-height: 1;
+        }
+        .lightbox .close:hover {
+            color: #e9cbc1;
+            transform: scale(1.1);
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            object-fit: contain;
+            background: #fff;
+            padding: 8px;
+        }
+        .lightbox .caption {
+            color: #f5e3db;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 800px) {
+            .card {
+                padding: 2rem 1.5rem;
+            }
+            .brand-name {
+                font-size: 1.8rem;
+            }
+            .brand-flower {
+                width: 70px;
+                height: 70px;
+            }
+            .page-title {
+                font-size: 2.2rem;
+            }
+            .page-title small {
+                font-size: 1.3rem;
+            }
+            .price-box .amount {
+                font-size: 2.2rem;
+            }
+            .detail-card {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+            .meta-tags {
+                justify-content: center;
+            }
+            .flex-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn-whatsapp, .btn-outline {
+                width: 100%;
+                justify-content: center;
+            }
+            .hero-image {
+                max-width: 300px;
+            }
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 500px) {
+            .feature-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <div class="top-header">
+        <div class="brand-name">
+            <span class="brand-text">盛飛樓</span>
+            <img class="brand-flower" src="logo.png" alt="盛飛樓logo" loading="lazy">
+            <span class="brand-text">· 黏土工作室</span>
+        </div>
+    </div>
+
+    <div class="navbar">
+        <a href="index.html" class="nav-link">🏠 首頁</a>
+        <a href="about.html" class="nav-link">📖 關於我們</a>
+        <a href="courses.html" class="nav-link">🎨 課程</a>
+        <a href="gallery.html" class="nav-link">🖼️ 成品展出</a>
+        <a href="contact.html" class="nav-link">📞 報名查詢</a>
+    </div>
+
+    <!-- 課程主圖：n6.png，點擊放大 -->
+    <div class="hero-image">
+        <img src="n6.png" alt="課程圖片" onclick="openHeroLightbox('n6.png')">
+    </div>
+
+    <h1 class="page-title">
+        迷你花 &amp; 盤境
+        <small>恆常班</small>
+    </h1>
+    <div class="page-sub">
+        🌿 適合任何年齡人士 · 從花藝到盆景，綻放你的創作力
+    </div>
+
+    <!-- 特色亮點圖片 -->
+    <div class="feature-grid">
+        <div class="feature-item" onclick="openLightbox(this)">
+            <img src="n5.png" alt="課程成品" loading="lazy">
+            <h3>課程成品</h3>
+        </div>
+        <div class="feature-item" onclick="openLightbox(this)">
+            <img src="n2.png" alt="課程成品" loading="lazy">
+            <h3>課程成品</h3>
+        </div>
+        <div class="feature-item" onclick="openLightbox(this)">
+            <img src="n3.png" alt="課程成品" loading="lazy">
+            <h3>課程成品</h3>
+        </div>
+        <div class="feature-item" onclick="openLightbox(this)">
+            <img src="n4.png" alt="課程成品" loading="lazy">
+            <h3>課程成品</h3>
+        </div>
+    </div>
+
+    <div class="detail-card">
+        <div class="price-box">
+            <span class="label">課程費用</span>
+            <div class="amount">HK$600 <small>/ 4堂</small></div>
+            <span style="font-size:0.9rem; color:#b08578; margin-top:0.2rem;">🌸 材料全包 · 無需自備</span>
+        </div>
+        <div class="meta-tags">
+            <span class="meta-tag"><i class="far fa-clock"></i> 每堂 90 分鐘</span>
+            <span class="meta-tag"><i class="far fa-calendar-alt"></i> 每週固定時段</span>
+            <span class="meta-tag"><i class="fas fa-user-friends"></i> 小班教學</span>
+        </div>
+    </div>
+
+    <div class="flex-time">
+        <i class="fas fa-calendar-check"></i>
+        <span>彈性自定預約時間</span> ｜ 逢星期一至星期日 早上 10:00 – 下午 6:00
+    </div>
+
+    <div style="background:#fff6f2; border-radius:32px; padding:1rem 1.8rem; margin:1rem 0 1.5rem; font-size:0.95rem; color:#6f5146;">
+        <i class="fas fa-pencil-alt" style="color:#c4816e; margin-right:0.6rem;"></i>
+        課程涵蓋多種花卉及盤境技法，導師個別指導，適合初學或有基礎學員。
+    </div>
+
+    <div class="flex-buttons">
+        <a href="contact.html" class="btn-outline"><i class="fas fa-phone-alt"></i> 查詢詳情</a>
+        <a href="https://wa.me/85212345678?text=我想報名迷你花及盤境課程" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp 即時報名</a>
+    </div>
+
+    <div class="footer-signature">
+        <span>盛飛樓 · 黏土藝術</span>
+        <span>🌸</span>
+    </div>
+</div>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" src="" alt="放大圖片">
+    <div class="caption" id="lightbox-caption"></div>
+</div>
+
+<script>
+    function openLightbox(element) {
+        var img = element.querySelector('img');
+        var caption = element.querySelector('h3') ? element.querySelector('h3').innerText : '';
+        var lightbox = document.getElementById('lightbox');
+        var lightboxImg = document.getElementById('lightbox-img');
+        var lightboxCaption = document.getElementById('lightbox-caption');
+        lightboxImg.src = img.src;
+        lightboxCaption.textContent = caption;
+        lightbox.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function openHeroLightbox(src) {
+        var lightbox = document.getElementById('lightbox');
+        var lightboxImg = document.getElementById('lightbox-img');
+        var lightboxCaption = document.getElementById('lightbox-caption');
+        lightboxImg.src = src;
+        lightboxCaption.textContent = '課程圖片';
+        lightbox.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        var lightbox = document.getElementById('lightbox');
+        lightbox.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeLightbox();
+        }
+    });
+</script>
+</body>
+</html>
