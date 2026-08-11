@@ -3,401 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <meta name="description" content="盛飛樓黏土工作室｜課程總覽｜初班、進階、証書課程｜黏土藝術與手作教學">
+    <meta name="description" content="盛飛樓黏土工作室｜課程總覽｜恆常班｜初班、進階、証書課程｜黏土藝術與手作教學">
     <title>盛飛樓 · 黏土工作室｜課程專區</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 (免費圖標庫) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: linear-gradient(145deg, #ffdbd8 0%, #ffc9c2 100%);
-            font-family: "Inter", sans-serif;
-            color: #3d2f2b;
-            line-height: 1.5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 2rem 1.5rem;
-        }
-
-        .card {
-            max-width: 1280px;
-            width: 100%;
-            background-color: #fffaf9;
-            border-radius: 32px;
-            box-shadow: 0 20px 40px -12px rgba(180, 110, 100, 0.25), 0 8px 24px -6px rgba(140, 80, 70, 0.15);
-            overflow: hidden;
-            padding: 3rem 3rem 4rem 3rem;
-            transition: all 0.2s ease;
-            border: 1px solid rgba(255, 220, 215, 0.6);
-        }
-
-        /* 品牌區域 */
-        .top-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 1.2rem;
-        }
-        .brand-name {
-            font-family: "Playfair Display", serif;
-            font-size: 2.4rem;
-            font-weight: 500;
-            color: #633d33;
-            letter-spacing: 1px;
-            line-height: 1.2;
-            display: inline-flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-        }
-        .brand-name span {
-            background: linear-gradient(135deg, #6a4238, #a56153);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-        .brand-flower {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            object-fit: cover;
-            transition: transform 0.2s ease;
-        }
-        .brand-flower:hover {
-            transform: scale(1.05);
-        }
-
-        /* 導覽列 */
-        .navbar {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-            gap: 0.5rem 2rem;
-            margin-top: 0.25rem;
-            margin-bottom: 2rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 2px solid #fbe0d7;
-        }
-        .nav-link {
-            font-size: 1.05rem;
-            font-weight: 500;
-            color: #8b5c50;
-            text-decoration: none;
-            padding: 0.4rem 0;
-            transition: all 0.2s ease;
-            position: relative;
-            letter-spacing: 0.3px;
-        }
-        .nav-link:hover {
-            color: #c26e5c;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #e7b4a8;
-            transition: width 0.2s ease;
-        }
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        .nav-link.active {
-            color: #c26e5c;
-            font-weight: 600;
-        }
-        .nav-link.active::after {
-            width: 100%;
-            background: #d9998a;
-        }
-
-        /* 課程主視覺標題 */
-        .page-title {
-            font-family: "Playfair Display", serif;
-            font-size: 2.2rem;
-            font-weight: 500;
-            color: #573e36;
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: baseline;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        .page-sub {
-            color: #b08578;
-            margin-bottom: 2rem;
-            border-left: 3px solid #f0cbbc;
-            padding-left: 1rem;
-            font-size: 1rem;
-        }
-
-        /* ========= 暑期班圖片區塊 (新增，強制 16:9 且支援1920x1080比例) ========= */
-        .summer-banner {
-            margin: 1.2rem 0 2rem 0;
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.25s ease, box-shadow 0.2s ease;
-            border-radius: 40px;
-            overflow: hidden;
-            box-shadow: 0 12px 22px -12px rgba(100, 60, 50, 0.2);
-        }
-        .summer-banner a {
-            display: block;
-            line-height: 0;
-            text-decoration: none;
-        }
-        /* 圖片容器強制 16:9 比例 (基於寬度，高度自動依16:9) */
-        .summer-img-wrapper {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* 16:9 = 9/16 = 0.5625 */
-            background-color: #fbe8e2;
-            overflow: hidden;
-            border-radius: 40px;
-        }
-        .summer-banner img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;      /* 確保圖片覆蓋整個16:9區域，不變形，裁切適合 */
-            object-position: center;
-            transition: all 0.3s ease;
-            display: block;
-        }
-        /* 為了1920x1080原圖完整呈現比例，使用cover確保視覺飽滿 */
-        .summer-banner:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 24px 30px -14px rgba(140, 90, 70, 0.3);
-        }
-        .summer-banner:hover img {
-            filter: brightness(0.97) contrast(1.02);
-            transform: scale(1.02);
-        }
-        .summer-caption {
-            font-size: 0.85rem;
-            background: #f5e6df;
-            display: inline-block;
-            padding: 0.4rem 1.2rem;
-            border-radius: 60px;
-            color: #a26b5b;
-            margin-top: 0.6rem;
-            font-weight: 500;
-        }
-
-        /* 課程卡片佈局 */
-        .courses-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin: 2rem 0 1rem;
-            justify-content: center;
-        }
-        .course-card {
-            background: #ffffffea;
-            border-radius: 40px;
-            padding: 2rem 1.8rem;
-            flex: 1;
-            min-width: 280px;
-            box-shadow: 0 12px 28px -8px rgba(140, 90, 80, 0.12);
-            transition: all 0.3s ease;
-            border: 1px solid #ffded7;
-            backdrop-filter: blur(0px);
-            display: flex;
-            flex-direction: column;
-        }
-        .course-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 28px 32px -12px rgba(100, 60, 50, 0.2);
-            border-color: #efcfc4;
-        }
-        .course-badge {
-            display: inline-block;
-            width: fit-content;
-            background: #f3e1da;
-            padding: 0.3rem 1rem;
-            border-radius: 60px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            color: #b26858;
-            margin-bottom: 1rem;
-        }
-        .course-title {
-            font-size: 1.9rem;
-            font-weight: 600;
-            font-family: "Playfair Display", serif;
-            color: #9e5f4e;
-            margin-bottom: 0.75rem;
-            line-height: 1.2;
-        }
-        .target-group {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #b57665;
-            background: #fff4ef;
-            display: inline-block;
-            padding: 0.2rem 0.9rem;
-            border-radius: 30px;
-            margin-bottom: 1.2rem;
-        }
-        .highlight-list {
-            list-style: none;
-            margin: 0.75rem 0 1rem 0;
-        }
-        .highlight-list li {
-            font-size: 0.95rem;
-            margin-bottom: 0.5rem;
-            padding-left: 1.4rem;
-            position: relative;
-            color: #4f3c36;
-        }
-        .highlight-list li::before {
-            content: "🌸";
-            position: absolute;
-            left: 0;
-            top: 0;
-            font-size: 0.85rem;
-            opacity: 0.8;
-        }
-        .course-meta {
-            font-size: 0.85rem;
-            background: #fdf5f0;
-            padding: 0.7rem;
-            border-radius: 28px;
-            margin: 0.8rem 0;
-            text-align: center;
-            color: #926f62;
-            font-weight: 500;
-        }
-        /* 價格區塊隱藏符合需求 */
-        .price-block {
-            display: none;
-        }
-
-        .info-note {
-            margin-top: 2rem;
-            text-align: center;
-            background: #fff6f2;
-            padding: 1rem;
-            border-radius: 48px;
-            font-size: 0.9rem;
-            color: #9b6f61;
-        }
-
-        /* 新增按鈕區塊 flex-buttons 樣式 */
-        .flex-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.2rem;
-            margin: 1.5rem auto 0.5rem auto;
-        }
-        .btn-whatsapp, .btn-outline {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            background: #25D366;
-            color: white;
-            padding: 0.8rem 1.8rem;
-            border-radius: 60px;
-            font-weight: 600;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            border: none;
-            cursor: pointer;
-            letter-spacing: 0.3px;
-        }
-        .btn-whatsapp {
-            background: #25D366;
-            border: 1px solid #20b859;
-        }
-        .btn-whatsapp:hover {
-            background: #128C7E;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 18px -6px rgba(37, 211, 102, 0.4);
-        }
-        .btn-outline {
-            background: #fdf0ea;
-            color: #b26858;
-            border: 1px solid #e9cbc1;
-            box-shadow: none;
-        }
-        .btn-outline:hover {
-            background: #ffe6de;
-            border-color: #d8aa9c;
-            transform: translateY(-2px);
-            color: #9e5b4a;
-        }
-        .btn-whatsapp i, .btn-outline i {
-            font-size: 1.2rem;
-        }
-
-        .footer-signature {
-            display: flex;
-            justify-content: flex-end;
-            margin-top: 2rem;
-            gap: 1rem;
-            color: #dbaa9f;
-            font-size: 0.95rem;
-            letter-spacing: 2px;
-        }
-
-        /* 響應式調整：在手機上依然維持16:9比例，並縮小邊距 */
-        @media (max-width: 800px) {
-            .card {
-                padding: 2rem 1.5rem;
-            }
-            .brand-name {
-                font-size: 1.8rem;
-            }
-            .brand-flower {
-                width: 70px;
-                height: 70px;
-            }
-            .page-title {
-                font-size: 1.8rem;
-            }
-            .course-title {
-                font-size: 1.6rem;
-            }
-            .flex-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            .btn-whatsapp, .btn-outline {
-                width: 100%;
-                justify-content: center;
-            }
-        }
-        @media (max-width: 700px) {
-            .price-block {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { background: linear-gradient(145deg, #ffdbd8 0%, #ffc9c2 100%); font-family: "Inter", sans-serif; color: #3d2f2b; line-height:1.5; display:flex; justify-content:center; align-items:center; min-height:100vh; padding:2rem 1.5rem; }
+        .card { max-width:1280px; width:100%; background-color:#fffaf9; border-radius:32px; box-shadow:0 20px 40px -12px rgba(180,110,100,0.25), 0 8px 24px -6px rgba(140,80,70,0.15); overflow:hidden; padding:3rem 3rem 4rem 3rem; border:1px solid rgba(255,220,215,0.6); }
+        .top-header { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:1.2rem; }
+        .brand-name { font-family:"Playfair Display",serif; font-size:2.4rem; font-weight:500; color:#633d33; letter-spacing:1px; line-height:1.2; display:inline-flex; align-items:center; flex-wrap:wrap; gap:0.6rem; }
+        .brand-name span { background:linear-gradient(135deg,#6a4238,#a56153); background-clip:text; -webkit-background-clip:text; color:transparent; }
+        .brand-flower { width:90px; height:90px; border-radius:50%; object-fit:cover; transition:transform .2s ease; }
+        .brand-flower:hover { transform:scale(1.05); }
+        .navbar { display:flex; flex-wrap:wrap; justify-content:flex-start; gap:0.5rem 2rem; margin-top:.25rem; margin-bottom:2rem; padding-bottom:.75rem; border-bottom:2px solid #fbe0d7; }
+        .nav-link { font-size:1.05rem; font-weight:500; color:#8b5c50; text-decoration:none; padding:.4rem 0; transition:all .2s ease; position:relative; letter-spacing:.3px; }
+        .nav-link:hover { color:#c26e5c; }
+        .nav-link::after { content:''; position:absolute; bottom:-2px; left:0; width:0; height:2px; background:#e7b4a8; transition:width .2s ease; }
+        .nav-link:hover::after { width:100%; }
+        .nav-link.active { color:#c26e5c; font-weight:600; }
+        .nav-link.active::after { width:100%; background:#d9998a; }
+        .page-title { font-family:"Playfair Display",serif; font-size:2.2rem; font-weight:500; color:#573e36; margin-bottom:.75rem; display:flex; align-items:baseline; flex-wrap:wrap; gap:.5rem; }
+        .page-sub { color:#b08578; margin-bottom:2rem; border-left:3px solid #f0cbbc; padding-left:1rem; font-size:1rem; }
+        .courses-container { display:flex; flex-wrap:wrap; gap:2rem; margin:1rem 0 .5rem; justify-content:center; }
+        .course-card { background:#ffffffea; border-radius:40px; padding:2rem 1.8rem; flex:1; min-width:280px; box-shadow:0 12px 28px -8px rgba(140,90,80,0.12); transition:all .3s ease; border:1px solid #ffded7; display:flex; flex-direction:column; }
+        .course-card:hover { transform:translateY(-6px); box-shadow:0 28px 32px -12px rgba(100,60,50,0.2); border-color:#efcfc4; }
+        .course-badge { display:inline-block; width:fit-content; background:#f3e1da; padding:.3rem 1rem; border-radius:60px; font-size:.8rem; font-weight:600; letter-spacing:.5px; color:#b26858; margin-bottom:1rem; }
+        .course-title { font-size:1.9rem; font-weight:600; font-family:"Playfair Display",serif; color:#9e5f4e; margin-bottom:.75rem; line-height:1.2; }
+        .target-group { font-size:.9rem; font-weight:500; color:#b57665; background:#fff4ef; display:inline-block; padding:.2rem .9rem; border-radius:30px; margin-bottom:1.2rem; }
+        .highlight-list { list-style:none; margin:.75rem 0 1rem; }
+        .highlight-list li { font-size:.95rem; margin-bottom:.5rem; padding-left:1.4rem; position:relative; color:#4f3c36; }
+        .highlight-list li::before { content:"🌸"; position:absolute; left:0; top:0; font-size:.85rem; opacity:.8; }
+        .course-meta { font-size:.85rem; background:#fdf5f0; padding:.7rem; border-radius:28px; margin:.8rem 0; text-align:center; color:#926f62; font-weight:500; }
+        .section-title { font-family:"Playfair Display",serif; font-size:1.8rem; color:#633d33; border-bottom:2px solid #f0cbbc; padding-bottom:.5rem; margin-bottom:1.5rem; display:flex; align-items:center; gap:.6rem; }
+        .section-title i { color:#b87a68; }
+        .info-note { margin-top:2rem; text-align:center; background:#fff6f2; padding:1rem; border-radius:48px; font-size:.9rem; color:#9b6f61; }
+        .flex-buttons { display:flex; flex-wrap:wrap; justify-content:center; gap:1.2rem; margin:1.5rem auto .5rem; }
+        .btn-whatsapp, .btn-outline { display:inline-flex; align-items:center; gap:.6rem; padding:.8rem 1.8rem; border-radius:60px; font-weight:600; font-size:1rem; text-decoration:none; transition:all .2s ease; box-shadow:0 4px 10px rgba(0,0,0,0.05); border:none; cursor:pointer; letter-spacing:.3px; }
+        .btn-whatsapp { background:#25D366; color:#fff; border:1px solid #20b859; }
+        .btn-whatsapp:hover { background:#128C7E; transform:translateY(-2px); box-shadow:0 10px 18px -6px rgba(37,211,102,0.4); }
+        .btn-outline { background:#fdf0ea; color:#b26858; border:1px solid #e9cbc1; }
+        .btn-outline:hover { background:#ffe6de; border-color:#d8aa9c; transform:translateY(-2px); color:#9e5b4a; }
+        .btn-whatsapp i, .btn-outline i { font-size:1.2rem; }
+        .footer-signature { display:flex; justify-content:flex-end; margin-top:2rem; gap:1rem; color:#dbaa9f; font-size:.95rem; letter-spacing:2px; }
+        @media (max-width:800px) { .card { padding:2rem 1.5rem; } .brand-name { font-size:1.8rem; } .brand-flower { width:70px; height:70px; } .page-title { font-size:1.8rem; } .course-title { font-size:1.6rem; } .section-title { font-size:1.5rem; } .flex-buttons { flex-direction:column; align-items:center; } .btn-whatsapp, .btn-outline { width:100%; justify-content:center; } }
+        @media (max-width:700px) { .price-block { flex-direction:column; align-items:flex-start; } }
     </style>
 </head>
 <body>
 <div class="card">
-    <!-- 品牌區域：logo 使用自然 fallback 機制（原始乾淨寫法） -->
+    <!-- 品牌區域 -->
     <div class="top-header">
         <div class="brand-name">
             <span class="brand-text">盛飛樓</span>
@@ -406,7 +63,7 @@
         </div>
     </div>
 
-    <!-- 導覽列：courses.html 自身為「課程」頁面，高亮active -->
+    <!-- 導覽列 -->
     <div class="navbar">
         <a href="index.html" class="nav-link">🏠 首頁</a>
         <a href="about.html" class="nav-link">📖 關於我們</a>
@@ -415,104 +72,115 @@
         <a href="contact.html" class="nav-link">📞 報名查詢</a>
     </div>
 
-    <!-- 課程頁面標題區 -->
-    <div class="page-title">
-        🧸 捏出靈感 · 盛飛樓課程體系
-    </div>
-    <div class="page-sub">
-        從手感入門到專業証書，循序漸進，綻放你的黏土藝術之路
-    </div>
+    <!-- 課程頁面標題 -->
+    <div class="page-title">🧸 捏出靈感 · 盛飛樓課程體系</div>
+    <div class="page-sub">從手感入門到專業証書，循序漸進，綻放你的黏土藝術之路</div>
 
-    <!-- ========= 新增圖片區塊：可直接連接到 暑期班.html，圖片容器 16:9 比例 (1920x1080比例) ========= -->
-    <div class="summer-banner">
-        <a href="暑期班.html" title="點擊查看暑期特別課程｜夏日黏土夏令營">
-            <div class="summer-img-wrapper">
-                <img src="sp6.png" 
-                     alt="盛飛樓暑期班限定課程｜創意黏土夏令營 1920x1080" 
-                     onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1920 1080\"><rect width=\"1920\" height=\"1080\" fill=\"%23fce8e2\"/><text x=\"960\" y=\"480\" font-size=\"64\" font-family=\"Inter, sans-serif\" fill=\"%23b56551\" text-anchor=\"middle\" font-weight=\"bold\">☀️ 暑期黏土夏令營 ☀️</text><text x=\"960\" y=\"580\" font-size=\"38\" fill=\"%239a624f\" text-anchor=\"middle\">創意手作 · 夏日主題工作坊</text><text x=\"960\" y=\"680\" font-size=\"28\" fill=\"%23be7c68\" text-anchor=\"middle\">點擊查看詳情 ➡️ 暑期班.html</text><text x=\"960\" y=\"800\" font-size=\"24\" fill=\"%23c27f6a\" text-anchor=\"middle\">16:9 精彩暑期課程</text></svg>'; this.style.objectFit='cover';">
+    <!-- ============================================================ -->
+    <!-- 1. 恆常班（已刪除「 · 長期固定時段」）                       -->
+    <!-- ============================================================ -->
+    <div style="margin-top:1.5rem;">
+        <h2 class="section-title"><i class="fas fa-sync-alt"></i> 恆常班</h2>
+        <div class="courses-container">
+
+            <!-- 基礎班課程 -->
+            <div class="course-card" onclick="location.href='基礎班.html'" style="cursor:pointer;">
+                <div class="course-badge">📘 穩固基礎</div>
+                <div class="course-title">基礎班課程</div>
+                <div class="target-group">🎯 對象：零基礎｜鞏固基本功</div>
+                <ul class="highlight-list">
+                    <li><strong>反覆練習核心手法</strong> — 揉、搓、捏、塑</li>
+                    <li><strong>基礎調色與混色</strong> — 掌握色彩基本原理</li>
+                    <li><strong>簡單小物實作</strong> — 從圓球到可愛造型</li>
+                    <li><strong>隨堂指導與即時糾錯</strong> — 確保每個動作到位</li>
+                </ul>
+                <div class="course-meta">👉 了解課程資訊</div>
             </div>
-        </a>
-        <div class="summer-caption">
-            <i class="fas fa-sun" style="margin-right: 6px;"></i> 暑期限定專班 · 立即點擊圖片
+
+            <!-- 迷你花及盤境課程（已改為「👉 了解課程資訊」） -->
+            <div class="course-card" onclick="location.href='迷你花.html'" style="cursor:pointer;">
+                <div class="course-badge">🌸 花藝專精</div>
+                <div class="course-title">迷你花及盤境課程</div>
+                <div class="target-group">🎯 對象：喜愛花卉與盆景藝術</div>
+                <ul class="highlight-list">
+                    <li><strong>各式花卉仿真技法</strong> — 玫瑰、多肉、蘭花等花瓣塑形</li>
+                    <li><strong>漸層上色與紋理表現</strong> — 打造自然生動的花卉</li>
+                    <li><strong>盤境構圖與意境營造</strong> — 空間配置與色彩協調</li>
+                    <li><strong>完成高級擺件或禮品</strong> — 可應用於家居裝飾</li>
+                </ul>
+                <!-- 此處已修改 -->
+                <div class="course-meta">👉 了解課程資訊</div>
+            </div>
+
         </div>
     </div>
 
-    <!-- 三大課程詳細區塊：初班、進階、証書；進階課程對象已調整為「具備基礎捏塑經驗人」 -->
-    <div class="courses-container">
-        <!-- 初班課程 (基礎課程) -->
-        <div class="course-card">
-            <div class="course-badge">🌱 入門首選</div>
-            <div class="course-title">初班課程</div>
-            <div class="target-group">🎯 對象：零基礎｜兒童｜親子｜成人初學者</div>
-            <ul class="highlight-list">
-                <li><strong>基礎手感養成</strong> — 圓球、水滴、搓揉與捏塑核心技巧</li>
-                <li><strong>可愛造型入門</strong> — 動物小物、飾品配件、迷你甜點</li>
-                <li><strong>色彩搭配與塗鴉裝飾</strong> — 壓克力手繪與質感點綴</li>
-                <li><strong>親子共學互動設計</strong> — 一起享受手作的溫暖時光</li>
-            </ul>
-            <div class="course-meta">⏱️ 每堂75分鐘｜共4堂｜完成2~3件可愛主題作品</div>
-            <div class="price-block" style="display: none;"></div>
-        </div>
+    <!-- ============================================================ -->
+    <!-- 2. 精修階段班（不變）                                        -->
+    <!-- ============================================================ -->
+    <div style="margin-top:3rem;">
+        <h2 class="section-title"><i class="fas fa-graduation-cap"></i> 精修階段班 - 分為三階段 (初班、進階、証書) 合共 24 堂</h2>
+        <div class="courses-container">
 
-        <!-- 進階課程（對象已改為「具備基礎捏塑經驗人」） -->
-        <div class="course-card">
-            <div class="course-badge">🌿 精進蛻變</div>
-            <div class="course-title">進階課程</div>
-            <div class="target-group">🎯 對象：具備基礎捏塑經驗人</div>
-            <ul class="highlight-list">
-                <li><strong>進階擬真工藝</strong> — 水果甜點仿真、細膩紋理與上色</li>
-                <li><strong>人偶與公仔雕塑</strong> — 五官比例、表情神韻與肢體動態</li>
-                <li><strong>高級調色與材質擬真</strong> — 半透明效果、漸層渲染技巧</li>
-                <li><strong>微縮模型極致工藝</strong> — 1:12 微型擺件場景應用</li>
-            </ul>
-            <div class="course-meta">⏱️ 每堂75分鐘｜共6堂｜完成進階專題作品集</div>
-            <div class="price-block" style="display: none;"></div>
-        </div>
+            <div class="course-card">
+                <div class="course-badge">🌱 入門首選</div>
+                <div class="course-title">初班課程</div>
+                <div class="target-group">🎯 對象：零基礎｜兒童｜親子｜成人初學者</div>
+                <ul class="highlight-list">
+                    <li><strong>基礎手感養成</strong> — 圓球、水滴、搓揉與捏塑核心技巧</li>
+                    <li><strong>可愛造型入門</strong> — 動物小物、飾品配件、迷你甜點</li>
+                    <li><strong>色彩搭配與塗鴉裝飾</strong> — 壓克力手繪與質感點綴</li>
+                    <li><strong>親子共學互動設計</strong> — 一起享受手作的溫暖時光</li>
+                </ul>
+                <div class="course-meta">⏱️ 每堂90分鐘｜共6堂｜完成基礎主題作品</div>
+            </div>
 
-        <!-- 証書課程 -->
-        <div class="course-card">
-            <div class="course-badge">🎓 專業認證</div>
-            <div class="course-title">証書課程</div>
-            <div class="target-group">🎯 對象：未來導師／專業創作者｜高階技法研修</div>
-            <ul class="highlight-list">
-                <li><strong>擬真果物雕塑及上色大師技法</strong> — 立體果物拼盤藝術</li>
-                <li><strong>高階人偶與公仔結構雕塑</strong> — 骨架、肌肉線條與動態</li>
-                <li><strong>專業調色學與表面質感處理</strong> — 多媒材結合應用</li>
-                <li><strong>大型微縮場景骨架搭建</strong> — 塑造底座結構，運用材料搭建基座框架</li>
-                <li><strong>餐桌美學/拼盤陳列設計</strong> — 展陳與作品攝影</li>
-                <li><strong>獲協會認可畢業証書</strong> — 完成考核頒發證書</li>
-            </ul>
-            <div class="course-meta">⏱️ 每堂75分鐘｜共10堂｜完成頒發証書｜適合專業進修與導師養成</div>
-            <div class="price-block" style="display: none;"></div>
+            <div class="course-card">
+                <div class="course-badge">🌿 精進蛻變</div>
+                <div class="course-title">進階課程</div>
+                <div class="target-group">🎯 對象：具備基礎捏塑經驗人</div>
+                <ul class="highlight-list">
+                    <li><strong>進階擬真工藝</strong> — 水果甜點仿真、細膩紋理與上色</li>
+                    <li><strong>人偶與公仔雕塑</strong> — 五官比例、表情神韻與肢體動態</li>
+                    <li><strong>高級調色與材質擬真</strong> — 半透明效果、漸層渲染技巧</li>
+                    <li><strong>微縮模型極致工藝</strong> — 1:12 微型擺件場景應用</li>
+                </ul>
+                <div class="course-meta">⏱️ 每堂90分鐘｜共12堂｜完成進階專題作品集</div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-badge">🎓 專業認證</div>
+                <div class="course-title">証書課程</div>
+                <div class="target-group">🎯 對象：未來導師／專業創作者｜高階技法研修</div>
+                <ul class="highlight-list">
+                    <li><strong>擬真果物雕塑及上色大師技法</strong> — 立體果物拼盤藝術</li>
+                    <li><strong>高階人偶與公仔結構雕塑</strong> — 骨架、肌肉線條與動態</li>
+                    <li><strong>專業調色學與表面質感處理</strong> — 多媒材結合應用</li>
+                    <li><strong>大型微縮場景骨架搭建</strong> — 塑造底座結構，運用材料搭建基座框架</li>
+                    <li><strong>餐桌美學/拼盤陳列設計</strong> — 展陳與作品攝影</li>
+                    <li><strong>獲協會認可畢業証書</strong> — 完成考核頒發證書</li>
+                </ul>
+                <div class="course-meta">⏱️ 每堂90分鐘｜共6堂｜完成高階考核與頒證</div>
+            </div>
+
         </div>
+        <p style="text-align: center; font-size: 0.9rem; color: #b08578; margin-top: 0.5rem;">
+            ※ 三階段可分別報名，亦可全程參與（合共 24 堂），完成後具備專業實力。
+        </p>
     </div>
 
-    <!-- 課程補充說明：教學特色與彈性制度 -->
-    <div class="info-note">
-        ✨ 盛飛樓教學特色：專業黏土師資｜小班精緻指導｜安全無毒材料｜彈性預約時段 ✨ <br>
-        除了實體課，也提供工作坊與主題研習，歡迎個人或團體洽詢課程規劃。
-    </div>
-
-    <!-- 按鈕區塊：WhatsApp 立即報名／查詢 ＋ 聯絡資訊按鈕 (明確連結到 contact.html) -->
+    <!-- 課程補充 & 按鈕 -->
+    <div class="info-note">✨ 盛飛樓教學特色：專業黏土師資｜小班精緻指導｜安全無毒材料｜彈性預約時段 ✨ <br>除了實體課，也提供工作坊與主題研習，歡迎個人或團體洽詢課程規劃。</div>
     <div class="flex-buttons">
-        <!-- WhatsApp 連結，使用提供的號碼 85266262756 ，訊息可自訂 -->
-        <a href="https://wa.me/85266262756?text=" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
-            <i class="fab fa-whatsapp"></i> 立即報名 / 查詢
-        </a>
-        <!-- 聯絡資訊按鈕直接導向 contact.html (報名查詢頁面) -->
-        <a href="contact.html" class="btn-outline">
-            <i class="fas fa-chevron-down"></i> 聯絡資訊
-        </a>
+        <a href="https://wa.me/85266262756?text=" target="_blank" rel="noopener noreferrer" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> 立即報名 / 查詢</a>
+        <a href="contact.html" class="btn-outline"><i class="fas fa-chevron-down"></i> 聯絡資訊</a>
     </div>
-
-    <div class="footer-signature">
-        <span>創意</span> <span>·</span> <span>手作</span> <span>·</span> <span>藝術</span>
-    </div>
+    <div class="footer-signature"><span>創意</span> <span>·</span> <span>手作</span> <span>·</span> <span>藝術</span></div>
 </div>
 
 <script>
     (function() {
-        // 品牌logo自然fallback: 若圖片載入失敗則顯示舒服的黏土風格替代
+        // 品牌 logo fallback
         const brandLogo = document.querySelector('.brand-flower');
         if (brandLogo) {
             brandLogo.addEventListener('error', function() {
@@ -528,48 +196,21 @@
                 brandLogo.dispatchEvent(new Event('error'));
             }
         }
-
-        // 確保暑期圖片區塊跳轉暑期班.html (強化a標籤)
-        const summerLink = document.querySelector('.summer-banner a');
-        if (summerLink && summerLink.getAttribute('href') !== '暑期班.html') {
-            summerLink.setAttribute('href', '暑期班.html');
-        }
-        // 為暑期banner增加點擊任何區域跳轉(保持易用)
-        const summerBanner = document.querySelector('.summer-banner');
-        if (summerBanner) {
-            summerBanner.addEventListener('click', (e) => {
-                if (!e.target.closest('a')) {
-                    const link = summerBanner.querySelector('a');
-                    if (link && link.href) {
-                        window.location.href = link.href;
-                    }
-                }
-            });
-        }
-        // 暑期圖片加載失敗時已由onerror內嵌高品質SVG替代 (保留16:9比例完美)
-        const summerImg = document.querySelector('.summer-banner img');
-        if (summerImg && summerImg.complete && summerImg.naturalWidth === 0 && !summerImg.getAttribute('data-fallback-set')) {
-            summerImg.setAttribute('data-fallback-set', 'true');
-            if (summerImg.onerror) summerImg.onerror();
-        }
-
-        // 確保WhatsApp鏈接安全屬性
+        // WhatsApp 按鈕
         const waBtn = document.querySelector('.btn-whatsapp');
         if (waBtn && waBtn.getAttribute('href')) {
             waBtn.setAttribute('target', '_blank');
             waBtn.setAttribute('rel', 'noopener noreferrer');
         }
-        // 平滑內部錨點（若有）
+        // 內部錨點平滑
         const allLinks = document.querySelectorAll('a');
         allLinks.forEach(link => {
             if (link.hostname === window.location.hostname && link.getAttribute('href') && link.getAttribute('href').startsWith('#')) {
-                link.addEventListener('click', (e) => {
+                link.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const targetId = link.getAttribute('href').substring(1);
+                    const targetId = this.getAttribute('href').substring(1);
                     const targetEl = document.getElementById(targetId);
-                    if (targetEl) {
-                        targetEl.scrollIntoView({ behavior: 'smooth' });
-                    }
+                    if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth' });
                 });
             }
         });
